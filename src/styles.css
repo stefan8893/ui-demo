@@ -1,17 +1,8 @@
+@import 'tailwindcss';
 
-@import "tailwindcss";
-
-* {
-  box-sizing: border-box;
+@theme {
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
-
-html,
-body,
-#app {
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-}
-
