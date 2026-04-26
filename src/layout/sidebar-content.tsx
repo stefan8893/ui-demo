@@ -1,8 +1,8 @@
 // components/SidebarContent.tsx
 import { NavItem } from '@/components/ui/nav-item'
-import { LayoutDashboard, Folder, Users, Settings } from 'lucide-react'
+import { LayoutDashboard, Users, Settings, FolderKanban } from 'lucide-react'
 
-export function SidebarContent() {
+export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
   return (
     <div className="flex flex-col h-full text-foreground/70">
       <div className="p-6">
@@ -11,18 +11,34 @@ export function SidebarContent() {
         </h2>
       </div>
 
-      <nav className="flex-1 px-4 space-y-2">
+      <nav className="flex flex-col gap-1 px-2">
         <NavItem
-          icon={<LayoutDashboard size={20} />}
+          to="/"
           label="Dashboard"
-          active
+          icon={<LayoutDashboard size={20} />}
+          isMobile={isMobile}
         />
-        <NavItem icon={<Folder size={20} />} label="Projekte" />
-        <NavItem icon={<Users size={20} />} label="Team" />
+        <NavItem
+          to="/projects"
+          label="Projekte"
+          icon={<FolderKanban size={20} />}
+          isMobile={isMobile}
+        />
+        <NavItem
+          to="/team"
+          label="Team"
+          icon={<Users size={20} />}
+          isMobile={isMobile}
+        />
       </nav>
 
-      <div className="p-4 border-t border-border">
-        <NavItem icon={<Settings size={20} />} label="Einstellungen" />
+      <div className="p-4 border-t border-border mt-auto">
+        <NavItem
+          to="/settings"
+          label="Einstellungen"
+          icon={<Settings size={20} />}
+          isMobile={isMobile}
+        />
       </div>
     </div>
   )

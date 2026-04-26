@@ -14,7 +14,7 @@ export function MainLayout() {
   return (
     <div
       className={cn(
-        'flex flex-col lg:grid min-h-screen bg-background text-foreground transition-all duration-300',
+        'flex flex-col lg:grid min-h-screen bg-background text-foreground transition-all duration-300 ease-in-out',
         isSidebarOpen ? 'lg:grid-cols-[280px_1fr]' : 'lg:grid-cols-[0px_1fr]',
       )}
     >
@@ -31,7 +31,7 @@ export function MainLayout() {
           </SheetTrigger>
           <SheetContent side="left" className="p-0 w-70 flex flex-col h-full">
             <div className="flex-1 overflow-y-auto py-4">
-              <SidebarContent />
+              <SidebarContent isMobile={true} />
             </div>
           </SheetContent>
         </Sheet>
@@ -42,11 +42,11 @@ export function MainLayout() {
       {/* DESKTOP SIDEBAR */}
       <aside
         className={cn(
-          'hidden lg:block border-r border-border bg-sidebar',
+          'hidden lg:block border-r border-border bg-sidebar overflow-hidden transition-all duration-300 ease-in-out',
           isSidebarOpen ? 'w-70' : 'w-0 opacity-0 border-none',
         )}
       >
-        <div className="sticky top-0 h-screen overflow-y-auto">
+        <div className="sticky top-0 h-screen w-70 overflow-y-auto">
           <SidebarContent />
         </div>
       </aside>
