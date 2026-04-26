@@ -26,7 +26,7 @@ export function MainLayout() {
       >
         <Sheet>
           <SheetTrigger asChild>
-            <IconButton icon={<Menu />} className="p-2" />
+            <IconButton icon={<Menu size={24} />} className="p-2" />
           </SheetTrigger>
           <SheetContent side="left" className="p-0 w-70 flex flex-col h-full">
             <div className="flex-1 overflow-y-auto py-4">
