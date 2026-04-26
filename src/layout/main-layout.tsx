@@ -2,14 +2,15 @@ import { Outlet } from '@tanstack/react-router'
 import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { SidebarContent } from './sidebar-content'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { IconButton } from '@/components/ui/icon-button'
+import { useScrollDirection } from '@/hooks/useScrollDirection'
 
 export function MainLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const scrollDir = useScrollDirection()
+  const scrollDirection = useScrollDirection()
   return (
     <div
       className={cn(
@@ -21,7 +22,7 @@ export function MainLayout() {
       <header
         className={cn(
           'lg:hidden fixed top-0 inset-x-0 h-16 flex items-center px-4 border-b bg-background/80 backdrop-blur-md z-50 transition-transform duration-300',
-          scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0',
+          scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0',
         )}
       >
         <Sheet>
@@ -56,7 +57,7 @@ export function MainLayout() {
         <header
           className={cn(
             'hidden lg:flex h-18 items-center px-4 gap-4 border-b bg-background/50 backdrop-blur-md sticky top-0 z-40 transition-transform duration-300',
-            scrollDir === 'down'
+            scrollDirection === 'down'
               ? '-translate-y-full shadow-none'
               : 'translate-y-0 shadow-sm',
           )}
@@ -90,29 +91,4 @@ export function MainLayout() {
       </div>
     </div>
   )
-}
-
-function useScrollDirection() {
-  const [scrollDir, setScrollDir] = useState<'up' | 'down'>('up')
-
-  useEffect(() => {
-    let lastScrollY = window.pageYOffset
-
-    const updateScrollDirection = () => {
-      const scrollY = window.pageYOffset
-      const direction = scrollY > lastScrollY ? 'down' : 'up'
-      if (
-        direction !== scrollDir &&
-        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
-      ) {
-        setScrollDir(direction)
-      }
-      lastScrollY = scrollY > 0 ? scrollY : 0
-    }
-
-    window.addEventListener('scroll', updateScrollDirection)
-    return () => window.removeEventListener('scroll', updateScrollDirection)
-  }, [scrollDir])
-
-  return scrollDir
 }
