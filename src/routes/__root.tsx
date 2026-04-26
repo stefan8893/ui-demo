@@ -1,8 +1,9 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router'
+import { createRootRoute, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import '../styles.css'
-import { MainLayout } from '@/components/layout/MainLayout'
+import { ThemeProvider } from 'next-themes'
+import { MainLayout } from '@/layout/main-layout'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -11,7 +12,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <>
-      <MainLayout></MainLayout>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <MainLayout />
+      </ThemeProvider>
       <TanStackDevtools
         config={{
           position: 'bottom-right',
