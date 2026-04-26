@@ -1,0 +1,35 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: ['**']
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Install packages
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+          npm install
+
+      - name: Lint
+        env:
+          CI: true
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
