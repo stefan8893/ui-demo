@@ -22,9 +22,7 @@ jobs:
           node-version: '24'
 
       - name: Install packages
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
-          npm install
+        run: npm install
 
       - name: Lint
         env:
