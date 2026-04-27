@@ -1,0 +1,94 @@
+name: Continuous Deployment
+
+on:
+  push:
+    tags: ['**']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    name: Extract Version
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    outputs:
+      version: ${{ steps.extract_version.outputs.version }}
+
+    steps:
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          if ($env:GITHUB_REF -like "refs/tags/*") {
+            $Version = $env:GITHUB_REF -replace 'refs/tags/', ''
+          } else {
+            Write-Host "No version found. Use default version instead."
+            $Version = "0.0.0"
+          }
+
+          Write-Host "Version: $Version"
+          echo "version=$Version" >> $env:GITHUB_OUTPUT
+
+      - name: Validate SemVer version
+        run: |
+          $Version = "${{ steps.extract_version.outputs.version }}"
+
+          if ($Version -notmatch '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$') {
+            Write-Error "Version '$Version' is not a valid SemVer."
+            EXIT -1
+          } else {
+            Write-Host "Version '$Version' is a valid SemVer. "
+          }
+
+  # Single deploy job since we're just deploying
+  publish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: metadata
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.CI_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Install packages
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+          npm install
+
+      - name: Lint
+        env:
+          CI: true
+        run: npm run lint
+
+      - name: Build
+        run: |
+          npm version ${{ needs.metadata.outputs.version }} --allow-same-version --no-git-tag-version
+          npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          # Upload app in /dist
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
