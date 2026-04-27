@@ -22,10 +22,13 @@ function SimpleButtons() {
   return (
     <SectionCard
       title="Button Showcase"
-      className="flex flex-col flex-nowrap items-start gap-6"
+      className="flex flex-col items-start gap-6"
     >
       {variants.map((variant) => (
-        <div key={variant} className="flex flex-row items-center gap-x-4">
+        <div
+          key={variant}
+          className="flex flex-row flex-wrap items-center gap-4"
+        >
           <Button variant={variant} size="icon">
             <Pointer className="size-4" />
           </Button>
