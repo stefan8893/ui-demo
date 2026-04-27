@@ -1,17 +1,25 @@
-# UI Demo
+# 🎨 My Custom UI Kit
 
-[UI Demo](https://stefan8893.github.io/ui-demo)
+A dedicated workspace for learning **React**, mastering **shadcn/ui**, and building a reusable design system for future projects.
 
-## Tools & Frameworks
+This project serves as a centralized UI library. It leverages the power of **Vite**, **Tailwind CSS**, and **Radix UI** primitives to create accessible, beautiful, and highly customizable components.
 
-### React
+## 🚀 Live Demo
 
-[![React](docs/assets/react-logo.svg)](https://react.dev)
+Check out the components in action: [https://stefan8893.github.io/ui-demo/](https://stefan8893.github.io/ui-demo/)
 
-### Vite
+---
 
-[![Vite](docs/assets/vite-logo.svg)](https://vite.dev)
+## 🛠 Tech Stack
 
-### TanStack Router
+- **Framework:** [React](https://reactjs.org/) (Vite)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Components:** [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
+- **Routing:** [TanStack Router](https://tanstack.com/router)
+- **Icons:** [Lucide React](https://lucide.dev/)
 
-[![Tanstack Router](docs/assets/tanstack-logo-color-100.png)](https://tanstack.com/router/latest)
+## 🏗 Project Goals
+
+- [x] **Learn shadcn/ui:** Understanding the "copy-paste" philosophy vs. traditional NPM packages.
+- [x] **Design Consistency:** Creating a unique visual identity using Tailwind CSS v4's `@theme` engine and native CSS variables.
+- [ ] **Reusable Library:** Exporting these styles to be used in secondary projects.
