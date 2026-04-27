@@ -8,18 +8,46 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { SidebarContent } from './sidebar-content'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { IconButton } from '@/components/ui/icon-button'
-import { useScrollDirection } from '@/hooks/useScrollDirection'
 import packageInfo from '@/../package.json'
+import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 
 export function MainLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const scrollDirection = useScrollDirection()
+  const layoutContainer = useRef(null)
+  const { isAtTop, isHidden, scrollY } = useSmartHeaderPosition(
+    layoutContainer,
+    64,
+  )
+
+  const getHeaderStyle = () => {
+    // FORMEL FÜR OBEN:
+    // Wenn wir oben sind, schieben wir den Header immer exakt so weit hoch,
+    // wie wir gescrollt haben.
+    // Ausnahme: Wenn er durch einen "Schnell-Scroll" von unten schon da ist,
+    // lassen wir ihn bei 0 stehen (kein Hüpfen).
+    if (isAtTop) {
+      const stickyOffset = isHidden ? -scrollY : 0
+
+      return {
+        transform: `translateY(${Math.min(0, stickyOffset)}px)`,
+        transition: 'none', // WICHTIG: Keine Verzögerung am Seitenanfang!
+      }
+    }
+
+    // FORMEL FÜR UNTEN:
+    return {
+      transform: isHidden ? 'translateY(-100%)' : 'translateY(0%)',
+      transition: 'transform 0.3s ease-in-out',
+    }
+  }
+
   return (
     <div
+      ref={layoutContainer}
       className={cn(
         'flex flex-col lg:grid min-h-screen bg-background text-foreground transition-all duration-300 ease-in-out',
         isSidebarOpen ? 'lg:grid-cols-[280px_1fr]' : 'lg:grid-cols-[0px_1fr]',
@@ -27,9 +55,10 @@ export function MainLayout() {
     >
       {/* MOBILE HEADER */}
       <header
+        style={getHeaderStyle()}
         className={cn(
-          'lg:hidden fixed top-0 inset-x-0 h-16 flex items-center px-4 border-b bg-background/80 backdrop-blur-md z-50 transition-transform duration-300',
-          scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0',
+          'lg:hidden fixed top-0 inset-x-0 h-16 flex items-center px-4 border-b bg-background/80 backdrop-blur-md z-50',
+          !isAtTop && 'transition-transform duration-300 ease-in-out',
         )}
       >
         <Sheet>
@@ -69,10 +98,8 @@ export function MainLayout() {
         {/* DESKTOP HEADER (SMART) */}
         <header
           className={cn(
-            'hidden lg:flex h-18 items-center px-4 gap-4 border-b bg-background/50 backdrop-blur-md sticky top-0 z-40 transition-transform duration-300',
-            scrollDirection === 'down'
-              ? '-translate-y-full shadow-none'
-              : 'translate-y-0 shadow-sm',
+            'hidden lg:flex h-18 items-center px-4 gap-4 border-b bg-background/50 backdrop-blur-md sticky top-0 z-40',
+            !isAtTop && 'transition-transform duration-300 ease-in-out',
           )}
         >
           <IconButton
