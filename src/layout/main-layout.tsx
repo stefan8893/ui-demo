@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { IconButton } from '@/components/ui/icon-button'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
+import packageInfo from '@/../package.json'
 
 export function MainLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
@@ -98,7 +99,7 @@ export function MainLayout() {
         </main>
 
         <footer className="p-4 border-t text-center text-[10px] text-muted-foreground/50">
-          v1.0.4-stable
+          {packageInfo.version}
         </footer>
       </div>
     </div>

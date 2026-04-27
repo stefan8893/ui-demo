@@ -50,6 +50,7 @@ jobs:
 
   # Single deploy job since we're just deploying
   publish:
+    name: Publish
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -80,7 +81,7 @@ jobs:
       - name: Build
         run: |
           npm version ${{ needs.metadata.outputs.version }} --allow-same-version --no-git-tag-version
-          npm run build
+          npm run build -- --base=/ui-demo/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
