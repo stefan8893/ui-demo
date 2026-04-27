@@ -29,9 +29,10 @@ export function useSmartHeaderPosition(
             // ZUSTAND 1: Wir sind ganz oben (0 bis Header-Höhe)
             if (currentScrollY <= headerHeight) {
               return {
-                // Wenn wir von unten kommen und der Header war versteckt,
-                // bleibt er "hidden", damit er pixelgenau reingeschoben werden kann.
-                isHidden: previous.isAtTop ? false : previous.isHidden,
+                // DER FIX: Wenn wir von unten kommen (isAtTop war false),
+                // setzen wir isHidden auf true, damit er im Layout
+                // bei translateY(-scrollY) startet und flüssig reingleitet.
+                isHidden: previous.isAtTop ? previous.isHidden : true,
                 isAtTop: true,
                 scrollY: currentScrollY,
               }

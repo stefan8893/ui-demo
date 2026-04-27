@@ -24,21 +24,15 @@ export function MainLayout() {
   )
 
   const getHeaderStyle = () => {
-    // FORMEL FÜR OBEN:
-    // Wenn wir oben sind, schieben wir den Header immer exakt so weit hoch,
-    // wie wir gescrollt haben.
-    // Ausnahme: Wenn er durch einen "Schnell-Scroll" von unten schon da ist,
-    // lassen wir ihn bei 0 stehen (kein Hüpfen).
     if (isAtTop) {
       const stickyOffset = isHidden ? -scrollY : 0
 
       return {
         transform: `translateY(${Math.min(0, stickyOffset)}px)`,
-        transition: 'none', // WICHTIG: Keine Verzögerung am Seitenanfang!
+        transition: 'none',
       }
     }
 
-    // FORMEL FÜR UNTEN:
     return {
       transform: isHidden ? 'translateY(-100%)' : 'translateY(0%)',
       transition: 'transform 0.3s ease-in-out',
