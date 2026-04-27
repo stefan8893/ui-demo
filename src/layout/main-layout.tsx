@@ -1,6 +1,12 @@
 import { Outlet } from '@tanstack/react-router'
 import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 import { SidebarContent } from './sidebar-content'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
@@ -30,6 +36,12 @@ export function MainLayout() {
             <IconButton icon={<Menu size={24} />} className="p-2" />
           </SheetTrigger>
           <SheetContent side="left" className="p-0 w-70 flex flex-col h-full">
+            <div className="sr-only">
+              <SheetTitle>Sidebar Navigation</SheetTitle>
+              <SheetDescription>
+                Here you can navigate through the different sections of the app.
+              </SheetDescription>
+            </div>
             <div className="flex-1 overflow-y-auto py-4">
               <SidebarContent isMobile={true} />
             </div>
