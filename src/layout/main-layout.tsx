@@ -55,7 +55,7 @@ export function MainLayout() {
       {/* DESKTOP SIDEBAR */}
       <aside
         className={cn(
-          'hidden lg:block border-r border-border bg-sidebar overflow-hidden transition-all duration-300 ease-in-out',
+          'hidden lg:block sticky top-0 h-screen border-r border-border bg-sidebar overflow-hidden transition-all duration-300 ease-in-out',
           isSidebarOpen ? 'w-70' : 'w-0 opacity-0 border-none',
         )}
       >
@@ -91,7 +91,6 @@ export function MainLayout() {
           <ThemeToggle className="ml-auto" />
         </header>
 
-        {/* Padding-Top für Mobile hinzufügen, damit der Content nicht unter dem Header startet */}
         <main className="flex-1 p-6 lg:p-10 mt-16 lg:mt-0">
           <div className="max-w-4xl mx-auto w-full">
             <Outlet />
