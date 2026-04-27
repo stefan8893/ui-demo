@@ -28,11 +28,20 @@ export function useSmartHeaderPosition(
           setScrollData((previous) => {
             // ZUSTAND 1: Wir sind ganz oben (0 bis Header-Höhe)
             if (currentScrollY <= headerHeight) {
+              // DER ENTSCHEIDENDE FIX:
+              // War der Header im Smart-Bereich bereits eingeblendet (!previous.isHidden)?
+              // Wenn ja, erzwingen wir, dass er sichtbar bleibt (isHidden: false).
+              const wasAlreadyVisible = !previous.isAtTop && !previous.isHidden
+
               return {
-                // DER FIX: Wenn wir von unten kommen (isAtTop war false),
-                // setzen wir isHidden auf true, damit er im Layout
-                // bei translateY(-scrollY) startet und flüssig reingleitet.
-                isHidden: previous.isAtTop ? previous.isHidden : true,
+                // Falls er schon da war -> false (bleibt da).
+                // Falls er weg war und wir kommen von unten -> true (wird reingeschoben).
+                // Falls wir schon oben waren -> alten Zustand behalten.
+                isHidden: wasAlreadyVisible
+                  ? false
+                  : previous.isAtTop
+                    ? previous.isHidden
+                    : true,
                 isAtTop: true,
                 scrollY: currentScrollY,
               }
