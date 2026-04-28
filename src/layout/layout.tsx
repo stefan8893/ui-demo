@@ -1,9 +1,20 @@
+import { ThemeToggle } from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import type { SmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import { cn } from '@/lib/utils'
-import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { SidebarContent } from './sidebar-content'
+import { MobileSidebar } from './mobile-sidebar'
+import { Outlet } from '@tanstack/react-router'
 
 export function Layout() {
   const HEADER_HEIGHT = 64
@@ -36,9 +47,7 @@ export function Layout() {
           isSidebarOpen ? 'w-70' : 'w-0 opacity-0',
         )}
       >
-        {Array.from({ length: 10 }).map((_, i) => (
-          <div key={i}>Nav item {i}</div>
-        ))}
+        <SidebarContent isMobile={false} />
       </aside>
 
       <div
@@ -54,20 +63,24 @@ export function Layout() {
         >
           <Button
             variant="ghost"
-            className="p-2"
+            className="hidden lg:block"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             {sidebarIcon}
           </Button>
+
+          <MobileSidebar></MobileSidebar>
+
           <span>Header</span>
+          <ThemeToggle className="ml-auto" />
         </header>
+
         <main className="flex-1">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="border-green-300/50">
-              Foo {i}
-            </div>
-          ))}
+          <div className="max-w-4xl mx-auto w-full">
+            <Outlet />
+          </div>
         </main>
+
         <footer className="bg-cyan-500 shrink-0">some footer</footer>
       </div>
     </div>

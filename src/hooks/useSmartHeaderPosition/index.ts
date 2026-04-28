@@ -93,9 +93,18 @@ export function getSmartHeader(
 export function getSmartHeaderForTopArea(
   previous: SmartHeader,
   currentScrollY: number,
-) {
+): SmartHeader {
   const isEnteringFromBelow = !previous.isAtTop
   const headerWasVisible = previous.position === 'floating-visible'
+
+  // if the user scrolls quite fast to the top
+  if (currentScrollY <= 0) {
+    return {
+      position: 'fixed-top',
+      isAtTop: true,
+      scrollY: currentScrollY,
+    }
+  }
 
   return {
     position: isEnteringFromBelow
