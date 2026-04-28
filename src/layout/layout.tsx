@@ -1,13 +1,11 @@
-import { ThemeToggle } from '@/components/theme-toggle'
-import { Button } from '@/components/ui/button'
 import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import type { SmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import { cn } from '@/lib/utils'
-import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { SidebarContent } from './sidebar-content'
 import { MobileSidebar } from './mobile-sidebar'
 import { Outlet } from '@tanstack/react-router'
+import { Header } from './header'
 
 export function Layout() {
   const HEADER_HEIGHT = 64
@@ -18,29 +16,29 @@ export function Layout() {
     HEADER_HEIGHT,
   )
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const sidebarIcon = isSidebarOpen ? (
-    <PanelLeftClose size={20} />
-  ) : (
-    <PanelLeftOpen size={20} />
-  )
+  const [showSidebar, setShowSidebar] = useState(true)
+  const [showMobileSidebar, setShowMobileSidebar] = useState(false)
 
   return (
     <div
       className={cn(
         'h-screen flex flex-col lg:grid overflow-hidden',
         'transition-all duration-300 ease-in-out',
-        isSidebarOpen ? 'grid-cols-[280px_1fr] ' : 'grid-cols-[0px_1fr]',
+        showSidebar ? 'grid-cols-[280px_1fr] ' : 'grid-cols-[0px_1fr]',
       )}
     >
       <aside
         className={cn(
           'bg-amber-300 hidden lg:block overflow-y-auto',
           'transition-all duration-300 ease-in-out',
-          isSidebarOpen ? 'w-70' : 'w-0 opacity-0',
+          showSidebar ? 'w-70' : 'w-0 opacity-0',
         )}
       >
-        <SidebarContent isMobile={false} />
+        {/* Wrap the sidebar in a container with a fix width 
+        in order to prevent squeezing the content when the sidebar is transitioning */}
+        <div className="sticky top-0 h-screen w-70 overflow-y-auto">
+          <SidebarContent />
+        </div>
       </aside>
 
       <div
@@ -54,18 +52,11 @@ export function Layout() {
             !isAtTop && 'transition-transform duration-300 ease-in-out',
           )}
         >
-          <Button
-            variant="ghost"
-            className="hidden lg:block"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          >
-            {sidebarIcon}
-          </Button>
-
-          <MobileSidebar></MobileSidebar>
-
-          <span>Header</span>
-          <ThemeToggle className="ml-auto" />
+          <Header
+            showSidebar={showSidebar}
+            toggleSidebar={() => setShowSidebar(!showSidebar)}
+            openMobileSidebar={() => setShowMobileSidebar(true)}
+          />
         </header>
 
         <main className="flex-1">
@@ -76,6 +67,11 @@ export function Layout() {
 
         <footer className="bg-cyan-500 shrink-0">some footer</footer>
       </div>
+
+      <MobileSidebar
+        isOpen={showMobileSidebar}
+        onOpenChange={setShowMobileSidebar}
+      ></MobileSidebar>
     </div>
   )
 }

@@ -1,22 +1,19 @@
-import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetTitle,
-  SheetTrigger,
 } from '@/components/ui/sheet'
-import { Menu } from 'lucide-react'
 import { SidebarContent } from './sidebar-content'
 
-export function MobileSidebar() {
+type MobileSidebarProps = {
+  isOpen: boolean
+  onOpenChange: (open: boolean) => void
+}
+
+export function MobileSidebar({ isOpen, onOpenChange }: MobileSidebarProps) {
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button className="p-2 lg:hidden">
-          <Menu size={24} />
-        </Button>
-      </SheetTrigger>
+    <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetContent side="left" className="p-0 w-70 flex flex-col h-full">
         <div className="sr-only">
           <SheetTitle>Sidebar Navigation</SheetTitle>

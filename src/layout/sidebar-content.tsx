@@ -1,4 +1,3 @@
-// components/SidebarContent.tsx
 import { NavItem } from '@/components/ui/nav-item'
 import { Settings, MousePointerClick, Home } from 'lucide-react'
 
@@ -19,11 +18,20 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
           isMobile={isMobile}
         />
         <NavItem
-          to="/simple-button"
-          label="Button"
+          to="/buttons"
+          label="Buttons"
           icon={<MousePointerClick size={20} />}
           isMobile={isMobile}
         />
+        {Array.from({ length: 30 }).map((_, i) => (
+          <NavItem
+            key={i}
+            to="/buttons"
+            label={`Buttons ${i}`}
+            icon={<MousePointerClick size={20} />}
+            isMobile={isMobile}
+          />
+        ))}
       </nav>
 
       <div className="p-4 border-t border-border mt-auto">
