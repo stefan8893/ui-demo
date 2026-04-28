@@ -15,6 +15,11 @@ export function Layout() {
   )
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const sidebarIcon = isSidebarOpen ? (
+    <PanelLeftClose size={20} />
+  ) : (
+    <PanelLeftOpen size={20} />
+  )
 
   return (
     <div
@@ -52,15 +57,11 @@ export function Layout() {
             className="p-2"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
-            {isSidebarOpen ? (
-              <PanelLeftClose size={20} />
-            ) : (
-              <PanelLeftOpen size={20} />
-            )}
+            {sidebarIcon}
           </Button>
           <span>Header</span>
         </header>
-        <main className="p-4 flex-1">
+        <main className="flex-1">
           {Array.from({ length: 5 }).map((_, i) => (
             <div key={i} className="border-green-300/50">
               Foo {i}

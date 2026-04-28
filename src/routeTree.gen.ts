@@ -9,18 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SimpleButtonRouteImport } from './routes/simple-button'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ButtonsRouteImport } from './routes/buttons'
 import { Route as IndexRouteImport } from './routes/index'
 
-const SimpleButtonRoute = SimpleButtonRouteImport.update({
-  id: '/simple-button',
-  path: '/simple-button',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ButtonsRoute = ButtonsRouteImport.update({
+  id: '/buttons',
+  path: '/buttons',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,48 +31,48 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/buttons': typeof ButtonsRoute
   '/settings': typeof SettingsRoute
-  '/simple-button': typeof SimpleButtonRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/buttons': typeof ButtonsRoute
   '/settings': typeof SettingsRoute
-  '/simple-button': typeof SimpleButtonRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/buttons': typeof ButtonsRoute
   '/settings': typeof SettingsRoute
-  '/simple-button': typeof SimpleButtonRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/settings' | '/simple-button'
+  fullPaths: '/' | '/buttons' | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/settings' | '/simple-button'
-  id: '__root__' | '/' | '/settings' | '/simple-button'
+  to: '/' | '/buttons' | '/settings'
+  id: '__root__' | '/' | '/buttons' | '/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ButtonsRoute: typeof ButtonsRoute
   SettingsRoute: typeof SettingsRoute
-  SimpleButtonRoute: typeof SimpleButtonRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/simple-button': {
-      id: '/simple-button'
-      path: '/simple-button'
-      fullPath: '/simple-button'
-      preLoaderRoute: typeof SimpleButtonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/settings': {
       id: '/settings'
       path: '/settings'
       fullPath: '/settings'
       preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buttons': {
+      id: '/buttons'
+      path: '/buttons'
+      fullPath: '/buttons'
+      preLoaderRoute: typeof ButtonsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,8 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ButtonsRoute: ButtonsRoute,
   SettingsRoute: SettingsRoute,
-  SimpleButtonRoute: SimpleButtonRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

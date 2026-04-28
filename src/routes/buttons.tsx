@@ -3,11 +3,11 @@ import { SectionCard } from '@/components/ui/section-card'
 import { createFileRoute } from '@tanstack/react-router'
 import { Pointer } from 'lucide-react'
 
-export const Route = createFileRoute('/simple-button')({
-  component: SimpleButtons,
+export const Route = createFileRoute('/buttons')({
+  component: Buttons,
 })
 
-function SimpleButtons() {
+function Buttons() {
   const variants = [
     'default',
     'secondary',
