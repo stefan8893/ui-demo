@@ -9,27 +9,22 @@ export function Layout() {
   // Der Ref muss auf das Element, das "overflow-y-auto" hat!
   const scrollableAreaRef = useRef<HTMLDivElement>(null)
 
-  const { isHidden, isAtTop, scrollY } = useSmartHeaderPosition(
+  const { position, isAtTop, scrollY } = useSmartHeaderPosition(
     scrollableAreaRef,
     HEADER_HEIGHT,
     15,
   )
 
   const getHeaderStyle = () => {
-    if (isAtTop) {
-      // Wenn er versteckt war, schiebe ihn pixelgenau rein.
-      // Wenn er schon da ist, lass ihn bei 0 fixiert.
-      const offset = isHidden ? -scrollY : 0
-      return {
-        transform: `translateY(${offset}px)`,
-        transition: 'none',
-      }
-    }
-    return {
-      transform: isHidden ? 'translateY(-100%)' : 'translateY(0%)',
+    switch (position) {
+      case 'fixed-top':
+        return { transform: `translateY(${-scrollY}px)`, transition: 'none' }
+      case 'floating-hidden':
+        return { transform: 'translateY(-100%)' }
+      case 'floating-visible':
+        return { transform: 'translateY(0%)' }
     }
   }
-
   return (
     <div className="h-screen grid grid-cols-[minmax(250px,300px)_1fr] overflow-hidden">
       <aside className="bg-amber-300 overflow-y-auto">Sidebar</aside>
@@ -55,7 +50,7 @@ export function Layout() {
           <span>Header</span>
         </header>
         <main className="p-4 flex-1">
-          {Array.from({ length: 5 }).map((_, i) => (
+          {Array.from({ length: 50 }).map((_, i) => (
             <div key={i} className="py-2 border-b border-green-300/50">
               Foo {i}
             </div>
