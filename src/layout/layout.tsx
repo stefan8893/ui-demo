@@ -1,40 +1,29 @@
 import { Button } from '@/components/ui/button'
 import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
+import type { SmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import { cn } from '@/lib/utils'
 import { Menu } from 'lucide-react'
 import { useRef } from 'react'
 
 export function Layout() {
   const HEADER_HEIGHT = 64
-  // Der Ref muss auf das Element, das "overflow-y-auto" hat!
-  const scrollableAreaRef = useRef<HTMLDivElement>(null)
+  const contentArea = useRef<HTMLDivElement>(null)
 
   const { position, isAtTop, scrollY } = useSmartHeaderPosition(
-    scrollableAreaRef,
+    contentArea,
     HEADER_HEIGHT,
-    15,
   )
 
-  const getHeaderStyle = () => {
-    switch (position) {
-      case 'fixed-top':
-        return { transform: `translateY(${-scrollY}px)`, transition: 'none' }
-      case 'floating-hidden':
-        return { transform: 'translateY(-100%)' }
-      case 'floating-visible':
-        return { transform: 'translateY(0%)' }
-    }
-  }
   return (
     <div className="h-screen grid grid-cols-[minmax(250px,300px)_1fr] overflow-hidden">
       <aside className="bg-amber-300 overflow-y-auto">Sidebar</aside>
 
       <div
-        ref={scrollableAreaRef}
+        ref={contentArea}
         className="bg-green-200 overflow-y-auto relative flex flex-col flex-nowrap"
       >
         <header
-          style={getHeaderStyle()}
+          style={getHeaderStyle(position, scrollY)}
           className={cn(
             'sticky top-0 z-50 h-16 shrink-0 flex flex-row justify-start items-center bg-teal-300/80',
             !isAtTop && 'transition-transform duration-300 ease-in-out',
@@ -50,8 +39,8 @@ export function Layout() {
           <span>Header</span>
         </header>
         <main className="p-4 flex-1">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <div key={i} className="py-2 border-b border-green-300/50">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} className="border-green-300/50">
               Foo {i}
             </div>
           ))}
@@ -60,4 +49,15 @@ export function Layout() {
       </div>
     </div>
   )
+}
+
+function getHeaderStyle(position: SmartHeaderPosition, scrollY: number) {
+  switch (position) {
+    case 'fixed-top':
+      return { transform: `translateY(${-scrollY}px)`, transition: 'none' }
+    case 'floating-hidden':
+      return { transform: 'translateY(-100%)' }
+    case 'floating-visible':
+      return { transform: 'translateY(0%)' }
+  }
 }

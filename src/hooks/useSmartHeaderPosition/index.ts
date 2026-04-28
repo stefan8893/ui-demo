@@ -49,6 +49,7 @@ export function useSmartHeaderPosition(
           lastScrollY.current = currentScrollY
           lock.current = false
         })
+
         lock.current = true
       }
     }

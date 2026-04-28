@@ -18,10 +18,12 @@ import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 export function MainLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const layoutContainer = useRef(null)
-  const { isAtTop, isHidden, scrollY } = useSmartHeaderPosition(
+  const { isAtTop, position, scrollY } = useSmartHeaderPosition(
     layoutContainer,
     64,
   )
+
+  const isHidden = position === 'floating-hidden'
 
   const getHeaderStyle = () => {
     if (isAtTop) {
