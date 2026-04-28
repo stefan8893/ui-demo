@@ -2,8 +2,8 @@ import { Button } from '@/components/ui/button'
 import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import type { SmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import { cn } from '@/lib/utils'
-import { Menu } from 'lucide-react'
-import { useRef } from 'react'
+import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import { useRef, useState } from 'react'
 
 export function Layout() {
   const HEADER_HEIGHT = 64
@@ -14,27 +14,49 @@ export function Layout() {
     HEADER_HEIGHT,
   )
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+
   return (
-    <div className="h-screen grid grid-cols-[minmax(250px,300px)_1fr] overflow-hidden">
-      <aside className="bg-amber-300 overflow-y-auto">Sidebar</aside>
+    <div
+      className={cn(
+        'h-screen flex flex-col lg:grid overflow-hidden',
+        'transition-all duration-300 ease-in-out',
+        isSidebarOpen ? 'grid-cols-[280px_1fr] ' : 'grid-cols-[0px_1fr]',
+      )}
+    >
+      <aside
+        className={cn(
+          'bg-amber-300 hidden lg:block overflow-y-auto',
+          'transition-all duration-300 ease-in-out',
+          isSidebarOpen ? 'w-70' : 'w-0 opacity-0',
+        )}
+      >
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div key={i}>Nav item {i}</div>
+        ))}
+      </aside>
 
       <div
         ref={contentArea}
-        className="bg-green-200 overflow-y-auto relative flex flex-col flex-nowrap"
+        className="bg-green-200 overflow-y-auto relative flex flex-col flex-nowrap flex-1"
       >
         <header
           style={getHeaderStyle(position, scrollY)}
           className={cn(
-            'sticky top-0 z-50 h-16 shrink-0 flex flex-row justify-start items-center bg-teal-300/80',
+            'bg-teal-300/80 sticky top-0 z-50 h-16 shrink-0 flex flex-row justify-start items-center',
             !isAtTop && 'transition-transform duration-300 ease-in-out',
           )}
         >
           <Button
             variant="ghost"
             className="p-2"
-            onClick={() => console.log('clicked')}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
-            <Menu size={24} />
+            {isSidebarOpen ? (
+              <PanelLeftClose size={20} />
+            ) : (
+              <PanelLeftOpen size={20} />
+            )}
           </Button>
           <span>Header</span>
         </header>
@@ -45,7 +67,7 @@ export function Layout() {
             </div>
           ))}
         </main>
-        <footer className="shrink-0 bg-cyan-500">some footer</footer>
+        <footer className="bg-cyan-500 shrink-0">some footer</footer>
       </div>
     </div>
   )
