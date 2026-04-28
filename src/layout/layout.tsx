@@ -1,16 +1,9 @@
 import { ThemeToggle } from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet'
 import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import type { SmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import { cn } from '@/lib/utils'
-import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { SidebarContent } from './sidebar-content'
 import { MobileSidebar } from './mobile-sidebar'
