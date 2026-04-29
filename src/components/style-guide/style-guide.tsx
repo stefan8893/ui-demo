@@ -12,7 +12,7 @@ import { Eye } from 'lucide-react'
 
 export default function StyleGuide() {
   return (
-    <>
+    <div className="space-y-10">
       <section>
         <h1 className="text-3xl font-bold tracking-tight mb-4">
           Design System
@@ -127,7 +127,7 @@ export default function StyleGuide() {
           />
         </div>
       </section>
-    </>
+    </div>
   )
 }
 

@@ -16,7 +16,7 @@ export function MobileSidebar({ isOpen, onOpenChange }: MobileSidebarProps) {
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetContent
         side="left"
-        className="p-0 w-70 flex flex-col h-full landscape:pl-8"
+        className="p-0 w-70 flex flex-col h-full pl-[env(safe-area-inset-left)]"
       >
         <div className="sr-only">
           <SheetTitle>Sidebar Navigation</SheetTitle>
