@@ -63,13 +63,13 @@ export function Layout() {
           />
         </header>
 
-        <main className="flex-1 p-6 lg:p-10 mt-16 lg:mt-0">
+        <main className="flex-1 px-4 pt-4 pb-20 sm:px-6 sm:pt-6 md:pt-8 lg:pt-10">
           <div className="max-w-4xl mx-auto w-full">
             <Outlet />
           </div>
         </main>
 
-        <footer className="p-4 border-t text-center text-xs text-muted-foreground/50">
+        <footer className="px-4 py-6 border-t text-center text-xs text-muted-foreground/50">
           {packageInfo.version}
         </footer>
       </div>
