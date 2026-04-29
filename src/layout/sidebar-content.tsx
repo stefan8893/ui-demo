@@ -1,4 +1,4 @@
-import { NavItem } from '@/components/ui/nav-item'
+import { NavItem } from '@/components/ui/navigation/nav-item'
 import { Settings, MousePointerClick, Home } from 'lucide-react'
 
 export function SidebarContent({ isMobile }: { isMobile?: boolean }) {

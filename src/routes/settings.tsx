@@ -1,4 +1,4 @@
-import { SectionCard } from '@/components/ui/section-card'
+import { SectionCard } from '@/components/ui/display/section-card'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/settings')({

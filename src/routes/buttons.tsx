@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { SectionCard } from '@/components/ui/section-card'
+import { Button } from '@/components/ui/buttons/button'
+import { SectionCard } from '@/components/ui/display/section-card'
 import { createFileRoute } from '@tanstack/react-router'
 import { Pointer } from 'lucide-react'
 

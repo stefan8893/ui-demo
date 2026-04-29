@@ -1,6 +1,6 @@
-import { ThemeToggle } from '@/components/theme-toggle'
-import { GithubLink } from '@/components/ui/github-link'
-import { IconButton } from '@/components/ui/icon-button'
+import { ThemeToggle } from '@/components/ui/branding/theme-toggle'
+import { GithubLink } from '@/components/ui/branding/github-link'
+import { IconButton } from '@/components/ui/buttons/icon-button'
 import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 
 type HeaderProps = {

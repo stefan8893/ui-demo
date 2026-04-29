@@ -3,7 +3,7 @@ import {
   SheetContent,
   SheetDescription,
   SheetTitle,
-} from '@/components/ui/sheet'
+} from '@/components/ui/overlays/sheet'
 import { SidebarContent } from './sidebar-content'
 
 type MobileSidebarProps = {

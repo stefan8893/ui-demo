@@ -1,18 +1,18 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/buttons/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { IconButton } from './ui/icon-button'
+} from '@/components/ui/display/card'
+import { Badge } from '@/components/ui/display/badge'
+import { IconButton } from '../ui/buttons/icon-button'
 import { Eye } from 'lucide-react'
 
 export default function StyleGuide() {
   return (
-    <div className="space-y-10">
+    <>
       <section>
         <h1 className="text-3xl font-bold tracking-tight mb-4">
           Design System
@@ -127,7 +127,7 @@ export default function StyleGuide() {
           />
         </div>
       </section>
-    </div>
+    </>
   )
 }
 

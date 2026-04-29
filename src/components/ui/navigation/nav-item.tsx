@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { cn } from '@/lib/utils'
-import { SheetClose } from './sheet'
+import { SheetClose } from '../overlays/sheet'
 
 interface NavItemProps {
   icon: React.ReactNode

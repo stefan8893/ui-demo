@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/buttons/button'
 import { cn } from '@/lib/utils'
 
 export function GithubLink({ className, ...props }: React.ComponentProps<'a'>) {
