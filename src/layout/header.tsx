@@ -1,4 +1,5 @@
 import { ThemeToggle } from '@/components/theme-toggle'
+import { GithubLink } from '@/components/ui/github-link'
 import { IconButton } from '@/components/ui/icon-button'
 import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 
@@ -18,17 +19,13 @@ export function Header({
       {showSidebar ? (
         <IconButton
           className="hidden lg:block"
-          variant="ghost"
           icon={PanelLeftClose}
-          size="icon-lg"
           onClick={toggleSidebar}
         />
       ) : (
         <IconButton
           className="hidden lg:block"
-          variant="ghost"
           icon={PanelLeftOpen}
-          size="icon-lg"
           onClick={toggleSidebar}
         />
       )}
@@ -36,8 +33,6 @@ export function Header({
       <IconButton
         className="lg:hidden"
         icon={Menu}
-        variant="ghost"
-        size="icon-lg"
         onClick={openMobileSidebar}
       />
 
@@ -46,7 +41,10 @@ export function Header({
         Dashboard / Übersicht
       </span> */}
 
-      <ThemeToggle className="ml-auto" />
+      <div className="ml-auto flex flex-row flex-nowrap items-center">
+        <GithubLink />
+        <ThemeToggle />
+      </div>
     </>
   )
 }

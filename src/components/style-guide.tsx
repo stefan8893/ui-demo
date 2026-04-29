@@ -7,6 +7,8 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { IconButton } from './ui/icon-button'
+import { Eye } from 'lucide-react'
 
 export default function StyleGuide() {
   return (
@@ -42,7 +44,13 @@ export default function StyleGuide() {
             <p className="text-xs font-medium uppercase text-muted-foreground">
               Outline (Accent-ish)
             </p>
-            <Button variant="outline">Dezent</Button>
+            <Button variant="outline">Rückzug</Button>
+          </div>
+          <div className="space-y-2">
+            <p className="text-xs font-medium uppercase text-muted-foreground">
+              Nur Icon
+            </p>
+            <IconButton icon={Eye} />
           </div>
           <div className="space-y-2">
             <p className="text-xs font-medium uppercase text-muted-foreground">

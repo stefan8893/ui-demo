@@ -6,12 +6,14 @@ import { cn } from '@/lib/utils'
 type IconButtonProps = Omit<ButtonProps, 'size'> & {
   icon: LucideIcon
   size?: 'icon-xs' | 'icon-sm' | 'default' | 'icon-lg'
+  varirant?: string
   iconClassName?: string
 }
 
 export function IconButton({
   icon: Icon,
-  size = 'default',
+  size = 'icon-lg',
+  variant = 'ghost',
   className,
   iconClassName,
   ...props
@@ -26,7 +28,7 @@ export function IconButton({
   const autoIconSize = iconSizeMap[size as string] ?? iconSizeMap['default']
 
   return (
-    <Button size={size} className={className} {...props}>
+    <Button size={size} variant={variant} className={className} {...props}>
       <Icon className={cn(autoIconSize, iconClassName)} />
     </Button>
   )
