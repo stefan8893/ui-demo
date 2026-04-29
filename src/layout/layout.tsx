@@ -33,8 +33,7 @@ export function Layout() {
           showSidebar ? 'w-70' : 'w-0 opacity-0 border-none',
         )}
       >
-        {/* Wrap the sidebar in a container with a fix width 
-        in order to prevent squeezing the content when the sidebar is transitioning */}
+        {/* The width here prevents squeezing the content when the sidebar is transitioning */}
         <div className="fixed h-screen w-70 overflow-y-auto">
           <SidebarContent />
         </div>
