@@ -3,7 +3,7 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import '../styles.css'
 import { ThemeProvider } from 'next-themes'
-import { MainLayout } from '@/layout/main-layout'
+import { Layout } from '@/layout/layout'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -13,7 +13,7 @@ function RootComponent() {
   return (
     <>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <MainLayout />
+        <Layout />
       </ThemeProvider>
       <TanStackDevtools
         config={{

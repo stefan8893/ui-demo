@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: 'Lint, Build & Test'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -31,3 +31,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Test
+        run: npm run test

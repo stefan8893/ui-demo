@@ -1,4 +1,3 @@
-// components/ui/nav-item.tsx
 import { Link } from '@tanstack/react-router'
 import { cn } from '@/lib/utils'
 import { SheetClose } from './sheet'
