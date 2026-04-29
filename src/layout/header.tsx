@@ -35,13 +35,11 @@ export function Header({
         icon={Menu}
         onClick={openMobileSidebar}
       />
-
-      <h1>Header</h1>
       {/* <span className="text-sm text-muted-foreground">
         Dashboard / Übersicht
       </span> */}
 
-      <div className="ml-auto flex flex-row flex-nowrap items-center">
+      <div className="ml-auto flex flex-row flex-nowrap items-center gap-2 sm:gap-4">
         <GithubLink />
         <ThemeToggle />
       </div>
