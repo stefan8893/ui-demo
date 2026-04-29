@@ -10,7 +10,7 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
         </h2>
       </div>
 
-      <nav className="flex flex-col gap-1 px-2">
+      <nav className="flex flex-col gap-1 px-2 pb-6">
         <NavItem
           to="/"
           label="Home"

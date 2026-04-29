@@ -28,18 +28,27 @@ export function Layout() {
       <aside
         className={cn(
           'hidden lg:block',
-          'transition-all duration-300 ease-in-out',
+          'transition-[width] duration-300 ease-in-out',
           'border-r border-border bg-sidebar',
-          showSidebar ? 'w-70' : 'w-0 opacity-0 border-none',
+          showSidebar ? 'w-70' : 'w-0 border-none',
         )}
       >
         {/* The width here prevents squeezing the content when the sidebar is transitioning */}
-        <div className="fixed h-screen w-70 overflow-y-auto">
+        <div
+          className={cn(
+            'fixed h-screen w-70 overflow-y-auto',
+            'transition-opacity ease-in-out',
+            showSidebar
+              ? 'opacity-100 duration-150 delay-250'
+              : 'opacity-0 duration-75',
+          )}
+        >
           <SidebarContent />
         </div>
       </aside>
 
       <div className={cn('relative flex flex-col flex-nowrap flex-1')}>
+        {/* Keep h-18 in sync with HEADER_HEIGTH  */}
         <header
           style={getHeaderStyle(position, scrollY)}
           className={cn(
