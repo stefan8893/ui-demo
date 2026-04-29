@@ -1,7 +1,7 @@
 import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import type { SmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import { cn } from '@/lib/utils'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { SidebarContent } from './sidebar-content'
 import { MobileSidebar } from './mobile-sidebar'
 import { Outlet } from '@tanstack/react-router'
@@ -10,12 +10,8 @@ import { Header } from './header'
 
 export function Layout() {
   const HEADER_HEIGHT = 72
-  const contentArea = useRef<HTMLDivElement>(null)
 
-  const { position, isAtTop, scrollY } = useSmartHeaderPosition(
-    contentArea,
-    HEADER_HEIGHT,
-  )
+  const { position, isAtTop, scrollY } = useSmartHeaderPosition(HEADER_HEIGHT)
 
   const [showSidebar, setShowSidebar] = useState(true)
   const [showMobileSidebar, setShowMobileSidebar] = useState(false)
@@ -23,16 +19,15 @@ export function Layout() {
   return (
     <div
       className={cn(
-        'h-screen flex flex-col lg:grid overflow-hidden',
+        'min-h-screen flex flex-col lg:grid',
         'transition-all duration-300 ease-in-out',
         'text-foreground',
-        // 'pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]',
         showSidebar ? 'grid-cols-[280px_1fr] ' : 'grid-cols-[0px_1fr]',
       )}
     >
       <aside
         className={cn(
-          'hidden lg:block overflow-y-auto',
+          'hidden lg:block',
           'transition-all duration-300 ease-in-out',
           'border-r border-border bg-sidebar',
           showSidebar ? 'w-70' : 'w-0 opacity-0 border-none',
@@ -40,17 +35,12 @@ export function Layout() {
       >
         {/* Wrap the sidebar in a container with a fix width 
         in order to prevent squeezing the content when the sidebar is transitioning */}
-        <div className="sticky top-0 h-screen w-70 overflow-y-auto">
+        <div className="fixed h-screen w-70 overflow-y-auto">
           <SidebarContent />
         </div>
       </aside>
 
-      <div
-        ref={contentArea}
-        className={cn(
-          'overflow-y-auto relative flex flex-col flex-nowrap flex-1',
-        )}
-      >
+      <div className={cn('relative flex flex-col flex-nowrap flex-1')}>
         <header
           style={getHeaderStyle(position, scrollY)}
           className={cn(
@@ -66,7 +56,7 @@ export function Layout() {
           />
         </header>
 
-        <main className="flex-1 px-4 pt-4 pb-20 sm:px-6 sm:pt-6 md:pt-8 lg:pt-10">
+        <main className="flex-1 px-2 pt-4 pb-20 sm:px-4 md:px-6 sm:pt-6 md:pt-8 lg:pt-10">
           <div className="max-w-4xl mx-auto w-full">
             <Outlet />
           </div>

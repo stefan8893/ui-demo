@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react'
-import type { RefObject } from 'react'
 
 export type SmartHeaderPosition =
   | 'fixed-top'
@@ -13,7 +12,6 @@ export type SmartHeader = {
 }
 
 export function useSmartHeaderPosition(
-  container: RefObject<HTMLDivElement | null>,
   headerHeight: number,
   threshold: number = 15,
 ) {
@@ -27,13 +25,10 @@ export function useSmartHeaderPosition(
   const lock = useRef(false)
 
   useEffect(() => {
-    const element = container.current
-    if (!element) return
-
     const handleScroll = () => {
       if (!lock.current) {
         window.requestAnimationFrame(() => {
-          const currentScrollY = Math.max(0, element.scrollTop)
+          const currentScrollY = Math.max(0, window.scrollY)
           const delta = currentScrollY - lastScrollY.current
 
           setScrollData((previous) =>
@@ -54,9 +49,9 @@ export function useSmartHeaderPosition(
       }
     }
 
-    element.addEventListener('scroll', handleScroll, { passive: true })
-    return () => element.removeEventListener('scroll', handleScroll)
-  }, [container, headerHeight, threshold])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [headerHeight, threshold])
 
   return scrollData
 }
