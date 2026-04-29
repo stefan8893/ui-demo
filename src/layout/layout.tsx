@@ -51,8 +51,8 @@ export function Layout() {
         <header
           style={getHeaderStyle(position, scrollY)}
           className={cn(
-            'sticky top-0 z-50 h-18 shrink-0 flex flex-row justify-start items-center',
-            'px-6 gap-2 sm:gap-4 border-b bg-background/50 backdrop-blur-sm',
+            'sticky top-0 z-50 h-18 shrink-0 flex flex-col flex-nowrap justify-center items-start',
+            'px-4 border-b bg-background/50 backdrop-blur-sm',
             !isAtTop && 'transition-transform duration-300 ease-in-out',
           )}
         >
