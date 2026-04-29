@@ -26,7 +26,7 @@ export function Layout() {
         'h-screen flex flex-col lg:grid overflow-hidden',
         'transition-all duration-300 ease-in-out',
         'text-foreground',
-        'pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]',
+        // 'pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]',
         showSidebar ? 'grid-cols-[280px_1fr] ' : 'grid-cols-[0px_1fr]',
       )}
     >
