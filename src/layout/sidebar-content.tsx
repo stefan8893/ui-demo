@@ -23,15 +23,6 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
           icon={<MousePointerClick size={20} />}
           isMobile={isMobile}
         />
-        {Array.from({ length: 30 }).map((_, i) => (
-          <NavItem
-            key={i}
-            to="/buttons"
-            label={`Buttons ${i}`}
-            icon={<MousePointerClick size={20} />}
-            isMobile={isMobile}
-          />
-        ))}
       </nav>
 
       <div className="p-4 border-t border-border mt-auto">

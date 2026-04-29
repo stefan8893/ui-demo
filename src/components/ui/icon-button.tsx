@@ -1,22 +1,33 @@
-// components/ui/icon-button.tsx
+import { Button } from '@/components/ui/button'
+import type { ButtonProps } from '@/components/ui/button'
+import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  // Wir akzeptieren nur ein fertiges Element (z.B. <Menu />)
-  icon: React.ReactNode
+type IconButtonProps = Omit<ButtonProps, 'size'> & {
+  icon: LucideIcon
+  size?: 'icon-xs' | 'icon-sm' | 'default' | 'icon-lg'
+  iconClassName?: string
 }
 
-export function IconButton({ icon, className, ...props }: IconButtonProps) {
+export function IconButton({
+  icon: Icon,
+  size = 'default',
+  className,
+  iconClassName,
+  ...props
+}: IconButtonProps) {
+  const iconSizeMap: Record<string, string> = {
+    'icon-xs': 'size-3',
+    'icon-sm': 'size-3.5',
+    default: 'size-4',
+    'icon-lg': 'size-5',
+  }
+
+  const autoIconSize = iconSizeMap[size as string] ?? iconSizeMap['default']
+
   return (
-    <button
-      className={cn(
-        'p-2 rounded-md transition-colors cursor-pointer flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent',
-        className,
-      )}
-      {...props}
-    >
-      {/* Wir rendern das Icon einfach direkt */}
-      {icon}
-    </button>
+    <Button size={size} className={className} {...props}>
+      <Icon className={cn(autoIconSize, iconClassName)} />
+    </Button>
   )
 }

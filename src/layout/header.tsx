@@ -1,5 +1,5 @@
 import { ThemeToggle } from '@/components/theme-toggle'
-import { Button } from '@/components/ui/button'
+import { IconButton } from '@/components/ui/icon-button'
 import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 
 type HeaderProps = {
@@ -13,27 +13,38 @@ export function Header({
   toggleSidebar,
   openMobileSidebar,
 }: HeaderProps) {
-  const sidebarIcon = showSidebar ? (
-    <PanelLeftClose size={20} />
-  ) : (
-    <PanelLeftOpen size={20} />
-  )
-
   return (
     <>
-      <Button
-        variant="ghost"
-        className="hidden lg:block"
-        onClick={toggleSidebar}
-      >
-        {sidebarIcon}
-      </Button>
+      {showSidebar ? (
+        <IconButton
+          className="hidden lg:block"
+          variant="ghost"
+          icon={PanelLeftClose}
+          size="icon-lg"
+          onClick={toggleSidebar}
+        />
+      ) : (
+        <IconButton
+          className="hidden lg:block"
+          variant="ghost"
+          icon={PanelLeftOpen}
+          size="icon-lg"
+          onClick={toggleSidebar}
+        />
+      )}
 
-      <Button className="p-2 lg:hidden" onClick={openMobileSidebar}>
-        <Menu size={24} />
-      </Button>
+      <IconButton
+        className="lg:hidden"
+        icon={Menu}
+        variant="ghost"
+        size="icon-lg"
+        onClick={openMobileSidebar}
+      />
 
       <h1>Header</h1>
+      {/* <span className="text-sm text-muted-foreground">
+        Dashboard / Übersicht
+      </span> */}
 
       <ThemeToggle className="ml-auto" />
     </>

@@ -5,10 +5,11 @@ import { useRef, useState } from 'react'
 import { SidebarContent } from './sidebar-content'
 import { MobileSidebar } from './mobile-sidebar'
 import { Outlet } from '@tanstack/react-router'
+import packageInfo from '@/../package.json'
 import { Header } from './header'
 
 export function Layout() {
-  const HEADER_HEIGHT = 64
+  const HEADER_HEIGHT = 72
   const contentArea = useRef<HTMLDivElement>(null)
 
   const { position, isAtTop, scrollY } = useSmartHeaderPosition(
@@ -24,14 +25,16 @@ export function Layout() {
       className={cn(
         'h-screen flex flex-col lg:grid overflow-hidden',
         'transition-all duration-300 ease-in-out',
+        'text-foreground',
         showSidebar ? 'grid-cols-[280px_1fr] ' : 'grid-cols-[0px_1fr]',
       )}
     >
       <aside
         className={cn(
-          'bg-amber-300 hidden lg:block overflow-y-auto',
+          'hidden lg:block overflow-y-auto',
           'transition-all duration-300 ease-in-out',
-          showSidebar ? 'w-70' : 'w-0 opacity-0',
+          'border-r border-border bg-sidebar',
+          showSidebar ? 'w-70' : 'w-0 opacity-0 border-none',
         )}
       >
         {/* Wrap the sidebar in a container with a fix width 
@@ -43,12 +46,13 @@ export function Layout() {
 
       <div
         ref={contentArea}
-        className="bg-green-200 overflow-y-auto relative flex flex-col flex-nowrap flex-1"
+        className="overflow-y-auto relative flex flex-col flex-nowrap flex-1"
       >
         <header
           style={getHeaderStyle(position, scrollY)}
           className={cn(
-            'bg-teal-300/80 sticky top-0 z-50 h-16 shrink-0 flex flex-row justify-start items-center',
+            'sticky top-0 z-50 h-18 shrink-0 flex flex-row justify-start items-center',
+            'px-4 gap-4 border-b bg-background/50 backdrop-blur-sm',
             !isAtTop && 'transition-transform duration-300 ease-in-out',
           )}
         >
@@ -59,13 +63,15 @@ export function Layout() {
           />
         </header>
 
-        <main className="flex-1">
+        <main className="flex-1 p-6 lg:p-10 mt-16 lg:mt-0">
           <div className="max-w-4xl mx-auto w-full">
             <Outlet />
           </div>
         </main>
 
-        <footer className="bg-cyan-500 shrink-0">some footer</footer>
+        <footer className="p-4 border-t text-center text-xs text-muted-foreground/50">
+          {packageInfo.version}
+        </footer>
       </div>
 
       <MobileSidebar
