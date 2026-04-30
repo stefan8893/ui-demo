@@ -1,0 +1,18 @@
+export function ColorBox({
+  label,
+  bg,
+  text,
+}: {
+  label: string
+  bg: string
+  text: string
+}) {
+  return (
+    <div className={`${bg} ${text} p-4 rounded-lg border shadow-sm`}>
+      <p className="font-bold text-sm">{label}</p>
+      <p className="text-[10px] opacity-80 uppercase tracking-wider font-mono">
+        Variable
+      </p>
+    </div>
+  )
+}

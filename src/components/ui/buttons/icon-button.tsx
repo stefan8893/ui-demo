@@ -8,10 +8,9 @@ import type { LucideIcon } from 'lucide-react'
 const iconVariants = cva('', {
   variants: {
     size: {
-      'icon-xs': 'size-3',
-      'icon-sm': 'size-3.5',
-      default: 'size-4',
-      'icon-lg': 'size-5',
+      sm: 'size-4',
+      default: 'size-5',
+      lg: 'size-6',
     },
   },
   defaultVariants: {
@@ -19,15 +18,15 @@ const iconVariants = cva('', {
   },
 })
 
-interface IconButtonProps
-  extends Omit<ButtonProps, 'size'>, VariantProps<typeof iconVariants> {
-  icon: LucideIcon
-  iconClassName?: string
-}
+type IconButtonProps = Omit<ButtonProps, 'size'> &
+  VariantProps<typeof iconVariants> & {
+    icon: LucideIcon
+    iconClassName?: string
+  }
 
 export function IconButton({
   icon: Icon,
-  size = 'icon-lg',
+  size = 'default',
   variant = 'ghost',
   className,
   iconClassName,
