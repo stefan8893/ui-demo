@@ -14,8 +14,7 @@ export function DefaultCardGuide() {
       <CardHeader>
         <CardTitle>Default Card</CardTitle>
         <CardDescription>
-          Wenn der User eine Entscheidung treffen oder Daten aktiv bearbeiten
-          soll.
+          Nutze diese Karte für Inhalte, mit denen der Nutzer arbeitet.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -30,10 +29,10 @@ export function DefaultCardGuide() {
         <div className="space-y-2">
           <p className="font-medium">Typische Anwendungsfälle:</p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground pl-3">
-            <li>Eingabemasken und Formulare</li>
-            <li>Dashboard-Widgets mit Kennzahlen</li>
-            <li>Klickbare Teaser oder Navigations-Elemente</li>
-            <li>Hervorhebung von Kernfunktionen</li>
+            <li>Formulare und Eingabefelder</li>
+            <li>Wichtige Dashboard-Elemente</li>
+            <li>Klickbare Teaser, die zu einer neuen Seite führen</li>
+            <li>Alles, was einen Button benötigt</li>
           </ul>
         </div>
       </CardContent>

@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/buttons/button'
 import { SectionCard } from '@/components/ui/display/section-card'
 import { createFileRoute } from '@tanstack/react-router'
-import { Bell } from 'lucide-react'
 
 export const Route = createFileRoute('/buttons')({
   component: Buttons,
@@ -29,10 +28,6 @@ function Buttons() {
           key={variant}
           className="flex flex-row flex-wrap items-center gap-4"
         >
-          <Button variant={variant} size="icon">
-            <Bell className="size-4" />
-          </Button>
-
           {sizes.map((size) => (
             <Button key={`${variant}-${size}`} variant={variant} size={size}>
               {variant.charAt(0).toUpperCase() + variant.slice(1)} ({size})

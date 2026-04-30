@@ -13,7 +13,7 @@ function Home() {
   return (
     <SectionCard
       title="Design System"
-      description="Zentrale Dokumentation der visuellen Sprache und UI-Komponenten."
+      description="Struktur und Leitlinien für eine einheitliche User Experience"
     >
       <div className="space-y-10">
         <ButtonsGuide />

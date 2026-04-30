@@ -13,17 +13,25 @@ export function ColorsGuide() {
             label="Primary"
             bg="bg-primary"
             text="text-primary-foreground"
+            color="#024a70"
           />
           <ColorBox
             label="Secondary"
             bg="bg-secondary"
             text="text-secondary-foreground"
+            color="#dfe6eb"
           />
-          <ColorBox label="Muted" bg="bg-muted" text="text-muted-foreground" />
+          <ColorBox
+            label="Muted"
+            bg="bg-muted"
+            text="text-muted-foreground"
+            color="#eff2f5"
+          />
           <ColorBox
             label="Accent"
             bg="bg-accent"
             text="text-accent-foreground"
+            color="#d3e0ea"
           />
         </div>
       </CardContent>

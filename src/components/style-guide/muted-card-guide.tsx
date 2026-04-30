@@ -22,18 +22,18 @@ export function MutedCardGuide() {
       </CardHeader>
       <CardContent className="space-y-4">
         <p>
-          Die <strong>Muted-Variante</strong> dient als untergeordnete Ebene für
-          statische Inhalte oder Hintergrundinformationen. Durch die dezente
-          Färbung und den Verzicht auf Schatten tritt sie visuell zurück.
+          Diese Karte ist für Inhalte gedacht, die nur gelesen werden. Sie hält
+          sich im Hintergrund, um den Fokus nicht von den wichtigen Aktionen
+          abzulenken.
         </p>
 
         <div className="space-y-2">
-          <p className="font-medium">Wann man sie nutzt:</p>
+          <p className="font-medium">Typische Anwendungsfälle:</p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground pl-3">
-            <li>Archivierte Daten oder Logs</li>
-            <li>Sekundäre Status-Informationen</li>
-            <li>Erklärtexte innerhalb komplexer Layouts</li>
-            <li>Inhalte, die keine direkte Aktion erfordern</li>
+            <li>Hintergrundinfos oder Hilfetexte</li>
+            <li>Archivierte Daten oder Protokolle</li>
+            <li>System-Statusmeldungen ohne Handlungsbedarf</li>
+            <li>Zusatzinfos, die keine Klicks erfordern</li>
           </ul>
         </div>
       </CardContent>
