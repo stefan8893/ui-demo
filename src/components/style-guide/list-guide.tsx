@@ -20,7 +20,7 @@ export function ListGuide() {
           <ListItem key={item}>{item}</ListItem>
         ))}
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-row justify-start items-center">
         <p className="text-[11px] leading-relaxed text-muted-foreground">
           <strong>Feedback:</strong> Nutzt den <code>accent</code>-State für
           Hover und Focus, um die Klickbarkeit visuell zu bestätigen.
