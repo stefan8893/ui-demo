@@ -37,10 +37,8 @@ export function DefaultCardGuide() {
         </div>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" className="w-full sm:w-auto">
-          Rückzug
-        </Button>
-        <Button className="w-full sm:w-auto">Hauptaktion</Button>
+        <Button variant="outline">Rückzug</Button>
+        <Button>Hauptaktion</Button>
       </CardFooter>
     </Card>
   )
