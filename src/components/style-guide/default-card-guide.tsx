@@ -28,7 +28,7 @@ export function DefaultCardGuide() {
 
         <div className="space-y-2">
           <p className="font-medium">Typische Anwendungsfälle:</p>
-          <ul className="list-disc list-inside space-y-2 text-muted-foreground pl-3">
+          <ul className="text-muted-foreground list-inside list-disc space-y-2 pl-3">
             <li>Formulare und Eingabefelder</li>
             <li>Wichtige Dashboard-Elemente</li>
             <li>Klickbare Teaser, die zu einer neuen Seite führen</li>

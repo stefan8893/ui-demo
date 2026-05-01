@@ -8,7 +8,7 @@ export function ColorsGuide() {
         <CardTitle>Farben</CardTitle>
       </CardHeader>
       <CardContent className="px-0">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <ColorBox
             label="Primary"
             bg="bg-primary"

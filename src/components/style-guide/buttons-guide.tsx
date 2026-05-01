@@ -21,10 +21,10 @@ export function ButtonsGuide() {
           {/* Primary */}
           <div className="flex flex-col gap-3">
             <div className="space-y-1">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Primary
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-muted-foreground text-xs">
                 Zentrale Interaktion
               </p>
             </div>
@@ -36,10 +36,10 @@ export function ButtonsGuide() {
           {/* Secondary */}
           <div className="flex flex-col gap-3">
             <div className="space-y-1">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Secondary
               </p>
-              <p className="text-xs text-muted-foreground">Bearbeiten</p>
+              <p className="text-muted-foreground text-xs">Bearbeiten</p>
             </div>
             <div className="flex flex-1 items-end">
               <Button variant="secondary" className="w-full">
@@ -51,10 +51,10 @@ export function ButtonsGuide() {
           {/* Outline */}
           <div className="flex flex-col gap-3">
             <div className="space-y-1">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Outline
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-muted-foreground text-xs">
                 Abbrechen/Schließen/Beenden
               </p>
             </div>
@@ -68,10 +68,10 @@ export function ButtonsGuide() {
           {/* Destructive */}
           <div className="flex flex-col gap-3">
             <div className="space-y-1">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Destructive
               </p>
-              <p className="text-xs text-muted-foreground">Löschen/Abbrechen</p>
+              <p className="text-muted-foreground text-xs">Löschen/Abbrechen</p>
             </div>
             <div className="flex flex-1 items-end">
               <Button variant="destructive" className="w-full">

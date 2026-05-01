@@ -9,5 +9,6 @@
     "**/routeTree.gen.ts": true
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "js/ts.preferences.importModuleSpecifier": "non-relative"
 }
