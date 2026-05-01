@@ -14,7 +14,7 @@ export const Route = createFileRoute('/settings')({
 function RouteComponent() {
   return (
     <SectionCard title="Einstellungen">
-      <Tabs defaultValue="region" className="" orientation="vertical">
+      <Tabs defaultValue="languageRegion" orientation="vertical">
         <div className="grid w-full grid-cols-[200px_minmax(0,1fr)] gap-12">
           <TabsList className="flex h-auto w-full flex-col items-stretch justify-start gap-y-1.5 border-none bg-transparent p-0">
             <SettingsTabTrigger value="languageRegion">
