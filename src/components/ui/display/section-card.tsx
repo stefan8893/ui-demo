@@ -24,7 +24,7 @@ export function SectionCard({
       {(title || description) && (
         <div className="mb-6 space-y-1.5">
           {title && (
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">{title}</h2>
+            <h2 className="mb-2 text-3xl font-bold tracking-tight">{title}</h2>
           )}
           {description && (
             <p className="text-muted-foreground text-sm">{description}</p>
