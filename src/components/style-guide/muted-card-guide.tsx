@@ -11,7 +11,7 @@ export function MutedCardGuide() {
   return (
     <Card variant="muted">
       <CardHeader>
-        <div className="flex justify-between items-center gap-2">
+        <div className="flex items-center justify-between gap-2">
           <CardTitle>Muted Card</CardTitle>
           <Info className="size-5" />
         </div>
@@ -29,7 +29,7 @@ export function MutedCardGuide() {
 
         <div className="space-y-2">
           <p className="font-medium">Typische Anwendungsfälle:</p>
-          <ul className="list-disc list-inside space-y-2 text-muted-foreground pl-3">
+          <ul className="text-muted-foreground list-inside list-disc space-y-2 pl-3">
             <li>Hintergrundinfos oder Hilfetexte</li>
             <li>Archivierte Daten oder Protokolle</li>
             <li>System-Statusmeldungen ohne Handlungsbedarf</li>

@@ -23,11 +23,11 @@ export function IconButtonsGuide() {
             <IconButton icon={Search} size="sm" />
           </div>
           <div className="text-center">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
               Small
             </p>
-            <p className="text-[10px] text-muted-foreground/70">16px Icon</p>
-            <p className="text-[10px] text-muted-foreground/70">size-4</p>
+            <p className="text-muted-foreground/70 text-[10px]">16px Icon</p>
+            <p className="text-muted-foreground/70 text-[10px]">size-4</p>
           </div>
         </div>
 
@@ -36,11 +36,11 @@ export function IconButtonsGuide() {
             <IconButton icon={Bell} />
           </div>
           <div className="text-center">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
               Default
             </p>
-            <p className="text-[10px] text-muted-foreground/70">20px Icon</p>
-            <p className="text-[10px] text-muted-foreground/70">size-5</p>
+            <p className="text-muted-foreground/70 text-[10px]">20px Icon</p>
+            <p className="text-muted-foreground/70 text-[10px]">size-5</p>
           </div>
         </div>
 
@@ -49,11 +49,11 @@ export function IconButtonsGuide() {
             <IconButton icon={Settings} size="lg" />
           </div>
           <div className="text-center">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
               Large
             </p>
-            <p className="text-[10px] text-muted-foreground/70">24px Icon</p>
-            <p className="text-[10px] text-muted-foreground/70">size-6</p>
+            <p className="text-muted-foreground/70 text-[10px]">24px Icon</p>
+            <p className="text-muted-foreground/70 text-[10px]">size-6</p>
           </div>
         </div>
       </CardContent>

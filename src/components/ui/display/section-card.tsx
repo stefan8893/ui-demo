@@ -16,7 +16,7 @@ export function SectionCard({
   return (
     <div
       className={cn(
-        'rounded-xl border bg-card text-card-foreground shadow-sm',
+        'bg-card text-card-foreground rounded-xl border shadow-sm',
         'p-6 lg:p-8',
         className,
       )}
@@ -24,10 +24,10 @@ export function SectionCard({
       {(title || description) && (
         <div className="mb-6 space-y-1.5">
           {title && (
-            <h2 className="text-3xl font-bold tracking-tight mb-4">{title}</h2>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight">{title}</h2>
           )}
           {description && (
-            <p className="text-sm text-muted-foreground">{description}</p>
+            <p className="text-muted-foreground text-sm">{description}</p>
           )}
         </div>
       )}

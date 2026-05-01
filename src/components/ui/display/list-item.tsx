@@ -11,7 +11,7 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
         ref={ref}
         {...props}
         className={cn(
-          'px-3 py-2 rounded-md text-sm transition-colors hover:bg-accent hover:text-accent-foreground cursor-pointer',
+          'hover:bg-accent hover:text-accent-foreground cursor-pointer rounded-md px-3 py-2 text-sm transition-colors',
           className,
         )}
       ></div>

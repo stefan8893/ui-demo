@@ -18,7 +18,7 @@ function Card({
       className={cn(
         'group/card @container/card flex flex-col gap-4 overflow-hidden rounded-xl py-4 text-sm ring-1 has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl',
         'data-[variant=default]:bg-card data-[variant=default]:text-card-foreground data-[variant=default]:ring-foreground/10',
-        'data-[variant=muted]:bg-muted/50 data-[variant=muted]:text-muted-foreground data-[variant=muted]:ring-transparent data-[variant=muted]:shadow-none',
+        'data-[variant=muted]:bg-muted/50 data-[variant=muted]:text-muted-foreground data-[variant=muted]:shadow-none data-[variant=muted]:ring-transparent',
 
         className,
       )}
@@ -57,7 +57,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="card-description"
-      className={cn('text-sm text-muted-foreground', className)}
+      className={cn('text-muted-foreground text-sm', className)}
       {...props}
     />
   )
@@ -91,7 +91,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card-footer"
       className={cn(
-        'flex flex-col-reverse @sm:flex-row flex-wrap justify-end items-stretch @sm:items-center rounded-b-xl border-t p-4 gap-4 group-data-[size=sm]/card:p-3',
+        'flex flex-col-reverse flex-wrap items-stretch justify-end gap-4 rounded-b-xl border-t p-4 group-data-[size=sm]/card:p-3 @sm:flex-row @sm:items-center',
         'group-data-[variant=muted]/card:bg-muted/50',
         className,
       )}

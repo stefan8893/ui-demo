@@ -15,7 +15,7 @@ export function NavItem({ icon, label, to, isMobile }: NavItemProps) {
       to={to}
       preload="intent"
       className={cn(
-        'w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer',
+        'flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all',
         'text-muted-foreground hover:text-foreground hover:bg-accent',
       )}
       activeProps={{
@@ -23,7 +23,7 @@ export function NavItem({ icon, label, to, isMobile }: NavItemProps) {
           'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90',
       }}
     >
-      <span className="size-5 flex items-center justify-center">{icon}</span>
+      <span className="flex size-5 items-center justify-center">{icon}</span>
       {label}
     </Link>
   )
