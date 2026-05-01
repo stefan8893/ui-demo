@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/overlays/dropdown-menu'
+import { cn } from '@/lib/utils'
 
 export function ThemeToggle({
   className,
@@ -15,12 +16,12 @@ export function ThemeToggle({
   const { setTheme } = useTheme()
 
   return (
-    <div className={className}>
+    <div className={cn('', className)}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon-lg" className="cursor-pointer">
-            <Sun className="size-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-            <Moon className="absolute size-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+            <Sun className="size-5 scale-100 rotate-0 dark:scale-0" />
+            <Moon className="absolute size-5 scale-0 dark:scale-100" />
             <span className="sr-only">Toggle Theme</span>
           </Button>
         </DropdownMenuTrigger>

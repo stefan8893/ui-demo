@@ -15,7 +15,7 @@ export function Header({
   openMobileSidebar,
 }: HeaderProps) {
   return (
-    <div className="flex flex-row flex-nowrap items-center w-full gap-2">
+    <div className="flex w-full flex-row flex-nowrap items-center gap-2">
       <IconButton
         className="hidden lg:flex"
         icon={showSidebar ? PanelLeftClose : PanelLeftOpen}
@@ -27,10 +27,6 @@ export function Header({
         icon={Menu}
         onClick={openMobileSidebar}
       />
-
-      {/* <span className="text-sm text-muted-foreground">
-        Dashboard / Übersicht
-      </span> */}
 
       <div className="ml-auto flex flex-row flex-nowrap items-center gap-3">
         <GithubLink />

@@ -19,17 +19,17 @@ export function Layout() {
   return (
     <div
       className={cn(
-        'min-h-screen flex flex-col lg:grid',
-        'transition-all duration-300 ease-in-out',
+        'flex min-h-screen flex-col lg:grid',
+        'transition-[grid-template-columns] duration-300 ease-in-out',
         'text-foreground',
-        showSidebar ? 'grid-cols-[280px_1fr] ' : 'grid-cols-[0px_1fr]',
+        showSidebar ? 'grid-cols-[280px_1fr]' : 'grid-cols-[0px_1fr]',
       )}
     >
       <aside
         className={cn(
           'hidden lg:block',
           'transition-[width] duration-300 ease-in-out',
-          'border-r border-border bg-sidebar',
+          'border-border bg-sidebar border-r',
           showSidebar ? 'w-70' : 'w-0 border-none',
         )}
       >
@@ -39,7 +39,7 @@ export function Layout() {
             'fixed h-screen w-70 overflow-y-auto',
             'transition-opacity ease-in-out',
             showSidebar
-              ? 'opacity-100 duration-150 delay-250'
+              ? 'opacity-100 delay-250 duration-150'
               : 'opacity-0 duration-75',
           )}
         >
@@ -47,13 +47,13 @@ export function Layout() {
         </div>
       </aside>
 
-      <div className={cn('relative flex flex-col flex-nowrap flex-1')}>
+      <div className={cn('relative flex flex-1 flex-col flex-nowrap')}>
         {/* Keep h-18 in sync with HEADER_HEIGTH  */}
         <header
           style={getHeaderStyle(position, scrollY)}
           className={cn(
-            'sticky top-0 z-50 h-18 shrink-0 flex flex-col flex-nowrap justify-center items-start',
-            'px-4 border-b bg-background/50 backdrop-blur-sm',
+            'sticky top-0 z-50 flex h-18 shrink-0 flex-col flex-nowrap items-start justify-center',
+            'bg-background/50 border-b px-4 backdrop-blur-sm',
             !isAtTop && 'transition-transform duration-300 ease-in-out',
           )}
         >
@@ -64,13 +64,13 @@ export function Layout() {
           />
         </header>
 
-        <main className="flex-1 px-2 pt-4 pb-20 sm:px-4 md:px-6 sm:pt-6 md:pt-8 lg:pt-10">
-          <div className="max-w-4xl mx-auto w-full">
+        <main className="flex-1 px-2 pt-4 pb-20 sm:px-4 sm:pt-6 md:px-6 md:pt-8 lg:pt-10">
+          <div className="mx-auto w-full max-w-4xl">
             <Outlet />
           </div>
         </main>
 
-        <footer className="px-4 py-6 border-t text-center text-xs text-muted-foreground/50">
+        <footer className="text-muted-foreground/50 border-t px-4 py-6 text-center text-xs">
           {packageInfo.version}
         </footer>
       </div>
