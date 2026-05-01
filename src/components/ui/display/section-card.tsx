@@ -17,7 +17,7 @@ export function SectionCard({
     <div
       className={cn(
         'bg-card text-card-foreground rounded-xl border shadow-sm',
-        'p-6 lg:p-8',
+        'p-4 sm:p-6 lg:p-8',
         className,
       )}
     >
