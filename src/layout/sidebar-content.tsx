@@ -1,11 +1,11 @@
 import { NavItem } from '@/components/ui/navigation/nav-item'
-import { Settings, MousePointerClick, Home } from 'lucide-react'
+import { Settings, Home } from 'lucide-react'
 
 export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
   return (
-    <div className="flex flex-col h-full text-foreground/70">
+    <div className="text-foreground/70 flex h-full flex-col">
       <div className="p-6">
-        <h2 className="text-xl font-bold tracking-tight text-foreground">
+        <h2 className="text-foreground text-xl font-bold tracking-tight">
           UI Demo
         </h2>
       </div>
@@ -17,15 +17,9 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
           icon={<Home size={20} />}
           isMobile={isMobile}
         />
-        <NavItem
-          to="/buttons"
-          label="Buttons"
-          icon={<MousePointerClick size={20} />}
-          isMobile={isMobile}
-        />
       </nav>
 
-      <div className="p-4 border-t border-border mt-auto">
+      <div className="border-border mt-auto border-t p-4">
         <NavItem
           to="/settings"
           label="Einstellungen"
