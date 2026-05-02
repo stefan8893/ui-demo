@@ -4,14 +4,14 @@ import { DefaultCardGuide } from '@/components/style-guide/default-card-guide'
 import { IconButtonsGuide } from '@/components/style-guide/icon-buttons-guide'
 import { ListGuide } from '@/components/style-guide/list-guide'
 import { MutedCardGuide } from '@/components/style-guide/muted-card-guide'
-import { SectionCard } from '@/components/ui/display/section-card'
+import { PageCard } from '@/components/ui/display/page-card'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
   return (
-    <SectionCard
+    <PageCard
       title="Design System"
       description="Struktur und Leitlinien für eine einheitliche User Experience"
     >
@@ -25,6 +25,6 @@ function Home() {
           <MutedCardGuide />
         </div>
       </div>
-    </SectionCard>
+    </PageCard>
   )
 }

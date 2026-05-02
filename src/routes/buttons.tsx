@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/buttons/button'
-import { SectionCard } from '@/components/ui/display/section-card'
+import { PageCard } from '@/components/ui/display/page-card'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/buttons')({
@@ -19,7 +19,7 @@ function Buttons() {
   const sizes = ['xs', 'sm', 'default', 'lg'] as const
 
   return (
-    <SectionCard
+    <PageCard
       title="Button Showcase"
       className="flex flex-col items-start gap-6"
     >
@@ -35,6 +35,6 @@ function Buttons() {
           ))}
         </div>
       ))}
-    </SectionCard>
+    </PageCard>
   )
 }

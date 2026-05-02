@@ -7,7 +7,7 @@ type SectionCardProps = {
   className?: string
 }
 
-export function SectionCard({
+export function PageCard({
   children,
   title,
   description,
