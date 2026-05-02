@@ -6,6 +6,7 @@ import {
   CardContent,
   CardDescription,
 } from '../ui/display/card'
+import { Section } from '@/components/ui/display/section'
 
 export function MutedCardGuide() {
   return (
@@ -20,14 +21,15 @@ export function MutedCardGuide() {
           Arbeitsfluss zu unterbrechen.
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <p>
-          Diese Karte ist für Inhalte gedacht, die nur gelesen werden. Sie hält
-          sich im Hintergrund, um den Fokus nicht von den wichtigen Aktionen
-          abzulenken.
-        </p>
-
-        <div className="space-y-2">
+      <CardContent>
+        <Section>
+          <p>
+            Diese Karte ist für Inhalte gedacht, die nur gelesen werden. Sie
+            hält sich im Hintergrund, um den Fokus nicht von den wichtigen
+            Aktionen abzulenken.
+          </p>
+        </Section>
+        <Section className="flex flex-col gap-y-2">
           <p className="font-medium">Typische Anwendungsfälle:</p>
           <ul className="text-muted-foreground list-inside list-disc space-y-2 pl-3">
             <li>Hintergrundinfos oder Hilfetexte</li>
@@ -35,7 +37,7 @@ export function MutedCardGuide() {
             <li>System-Statusmeldungen ohne Handlungsbedarf</li>
             <li>Zusatzinfos, die keine Klicks erfordern</li>
           </ul>
-        </div>
+        </Section>
       </CardContent>
     </Card>
   )

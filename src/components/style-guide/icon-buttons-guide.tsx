@@ -10,7 +10,7 @@ import {
 
 export function IconButtonsGuide() {
   return (
-    <Card size="sm">
+    <Card size="sm" withBorder>
       <CardHeader>
         <CardTitle>Icon Buttons</CardTitle>
         <CardDescription>

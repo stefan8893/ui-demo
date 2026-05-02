@@ -9,17 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ButtonsRouteImport } from './routes/buttons'
 import { Route as SettingsRouteRouteImport } from './routes/settings/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SettingsLanguageRegionRouteImport } from './routes/settings/language-region'
 import { Route as SettingsAppearanceRouteImport } from './routes/settings/appearance'
 
-const ButtonsRoute = ButtonsRouteImport.update({
-  id: '/buttons',
-  path: '/buttons',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SettingsRouteRoute = SettingsRouteRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -44,14 +38,12 @@ const SettingsAppearanceRoute = SettingsAppearanceRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRouteRouteWithChildren
-  '/buttons': typeof ButtonsRoute
   '/settings/appearance': typeof SettingsAppearanceRoute
   '/settings/language-region': typeof SettingsLanguageRegionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRouteRouteWithChildren
-  '/buttons': typeof ButtonsRoute
   '/settings/appearance': typeof SettingsAppearanceRoute
   '/settings/language-region': typeof SettingsLanguageRegionRoute
 }
@@ -59,7 +51,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/settings': typeof SettingsRouteRouteWithChildren
-  '/buttons': typeof ButtonsRoute
   '/settings/appearance': typeof SettingsAppearanceRoute
   '/settings/language-region': typeof SettingsLanguageRegionRoute
 }
@@ -68,21 +59,14 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/settings'
-    | '/buttons'
     | '/settings/appearance'
     | '/settings/language-region'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/settings'
-    | '/buttons'
-    | '/settings/appearance'
-    | '/settings/language-region'
+  to: '/' | '/settings' | '/settings/appearance' | '/settings/language-region'
   id:
     | '__root__'
     | '/'
     | '/settings'
-    | '/buttons'
     | '/settings/appearance'
     | '/settings/language-region'
   fileRoutesById: FileRoutesById
@@ -90,18 +74,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SettingsRouteRoute: typeof SettingsRouteRouteWithChildren
-  ButtonsRoute: typeof ButtonsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/buttons': {
-      id: '/buttons'
-      path: '/buttons'
-      fullPath: '/buttons'
-      preLoaderRoute: typeof ButtonsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/settings': {
       id: '/settings'
       path: '/settings'
@@ -150,7 +126,6 @@ const SettingsRouteRouteWithChildren = SettingsRouteRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SettingsRouteRoute: SettingsRouteRouteWithChildren,
-  ButtonsRoute: ButtonsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

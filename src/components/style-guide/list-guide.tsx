@@ -1,3 +1,4 @@
+import { Section } from '@/components/ui/display/section'
 import {
   Card,
   CardHeader,
@@ -10,15 +11,17 @@ import { ListItem } from '../ui/display/list-item'
 
 export function ListGuide() {
   return (
-    <Card size="sm">
+    <Card size="sm" withBorder>
       <CardHeader>
         <CardTitle>List Items</CardTitle>
         <CardDescription>Navigation & Interaktions-Feedback.</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-1">
-        {['Benutzerliste', 'Einstellungen', 'Abmelden'].map((item) => (
-          <ListItem key={item}>{item}</ListItem>
-        ))}
+      <CardContent>
+        <Section>
+          {['Benutzerliste', 'Einstellungen', 'Abmelden'].map((item) => (
+            <ListItem key={item}>{item}</ListItem>
+          ))}
+        </Section>
       </CardContent>
       <CardFooter className="flex flex-row items-center justify-start">
         <p className="text-muted-foreground text-[11px] leading-relaxed">

@@ -15,7 +15,7 @@ function Home() {
       title="Design System"
       description="Struktur und Leitlinien für eine einheitliche User Experience"
     >
-      <div className="space-y-10">
+      <div className="flex flex-col gap-y-10">
         <ButtonsGuide />
         <ColorsGuide />
         <div className="grid gap-6 md:grid-cols-2">

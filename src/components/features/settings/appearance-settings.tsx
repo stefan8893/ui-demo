@@ -10,23 +10,21 @@ export function AppearacneSettings() {
   return (
     <Card>
       <CardContent>
-        <div className="flex flex-col gap-10">
-          <Section
-            title="Helligkeit"
-            description="Wähle aus, wie die App auf deinem Bildschirm erscheinen soll."
-          >
-            <ThemeSettings />
-          </Section>
+        <Section
+          title="Helligkeit"
+          description="Wähle aus, wie die App auf deinem Bildschirm erscheinen soll."
+        >
+          <ThemeSettings />
+        </Section>
 
-          <Separator />
+        <Separator />
 
-          <Section
-            title="Farbschema & Vibe"
-            description="Passe die Grundstimmung der Oberfläche an."
-          >
-            <AccentThemeSettings />
-          </Section>
-        </div>
+        <Section
+          title="Farbschema & Vibe"
+          description="Passe die Grundstimmung der Oberfläche an."
+        >
+          <AccentThemeSettings />
+        </Section>
       </CardContent>
     </Card>
   )
