@@ -9,6 +9,8 @@ import {
 } from '@tanstack/react-router'
 import { useEffect } from 'react'
 
+const DEFAULT_TAB = '/settings/language-region'
+
 export const Route = createFileRoute('/settings')({
   component: RouteComponent,
   beforeLoad: ({ location }) => {
@@ -17,7 +19,7 @@ export const Route = createFileRoute('/settings')({
       location.pathname.endsWith('settings/')
     )
       throw redirect({
-        to: '/settings/language-region',
+        to: DEFAULT_TAB,
         replace: true,
       })
   },
@@ -28,7 +30,7 @@ function NotFoundRedirect() {
   const navigate = Route.useNavigate()
 
   useEffect(() => {
-    navigate({ to: '/settings/language-region', replace: true })
+    navigate({ to: DEFAULT_TAB, replace: true })
   }, [navigate])
 
   return null
