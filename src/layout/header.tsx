@@ -1,7 +1,13 @@
 import { ThemeToggle } from '@/components/ui/branding/theme-toggle'
 import { GithubLink } from '@/components/ui/branding/github-link'
 import { IconButton } from '@/components/ui/buttons/icon-button'
-import { Menu, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import {
+  Home,
+  Menu,
+  PanelLeftClose,
+  PanelLeftOpen,
+  Settings,
+} from 'lucide-react'
 
 type HeaderProps = {
   showSidebar: boolean
@@ -29,6 +35,8 @@ export function Header({
       />
 
       <div className="ml-auto flex flex-row flex-nowrap items-center gap-3">
+        <IconButton icon={Home} to="/" />
+        <IconButton icon={Settings} to="/settings" />
         <GithubLink />
         <ThemeToggle />
       </div>

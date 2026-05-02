@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/buttons/button'
 import type { ButtonProps } from '@/components/ui/buttons/button'
 import { cn } from '@/lib/utils'
+import { Link } from '@tanstack/react-router'
+import type { LinkProps } from '@tanstack/react-router'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import type { LucideIcon } from 'lucide-react'
@@ -18,7 +20,14 @@ const iconVariants = cva('', {
   },
 })
 
+const buttonSizeMap = {
+  sm: 'icon-sm',
+  default: 'icon',
+  lg: 'icon-lg',
+} as const
+
 type IconButtonProps = Omit<ButtonProps, 'size'> &
+  Partial<LinkProps> &
   VariantProps<typeof iconVariants> & {
     icon: LucideIcon
     iconClassName?: string
@@ -30,16 +39,38 @@ export function IconButton({
   variant = 'ghost',
   className,
   iconClassName,
+  to,
+  params,
+  search,
+  hash,
+  target,
+  replace,
   ...props
 }: IconButtonProps) {
+  const isLink = Boolean(to)
+
   return (
     <Button
       {...props}
-      size={size}
+      asChild={isLink}
+      size={buttonSizeMap[size ?? 'default']}
       variant={variant}
-      className={cn('shrink-0', className)}
+      className={cn('shrink-0 transition-none', className)}
     >
-      <Icon className={cn(iconVariants({ size }), iconClassName)} />
+      {isLink ? (
+        <Link
+          to={to}
+          params={params}
+          search={search}
+          hash={hash}
+          target={target}
+          replace={replace}
+        >
+          <Icon className={cn(iconVariants({ size }), iconClassName)} />
+        </Link>
+      ) : (
+        <Icon className={cn(iconVariants({ size }), iconClassName)} />
+      )}
     </Button>
   )
 }
