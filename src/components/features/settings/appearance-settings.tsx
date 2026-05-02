@@ -120,7 +120,7 @@ function AccentThemeSettings() {
         <div className="flex flex-col text-left">
           <span className="text-sm font-semibold">Organic Stone</span>
           <span className="text-muted-foreground text-[11px]">
-            Warm, geerdet, biophil.
+            Warm, geerdet.
           </span>
         </div>
         {accentTheme === 'organic' && (
