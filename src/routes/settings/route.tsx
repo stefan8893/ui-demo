@@ -1,40 +1,11 @@
 import { SettingsTabTrigger } from '@/components/features/settings/settings-tabs'
 import { PageCard } from '@/components/ui/display/page-card'
 import { Tabs, TabsList } from '@/components/ui/display/tabs'
-import {
-  createFileRoute,
-  Outlet,
-  redirect,
-  useRouterState,
-} from '@tanstack/react-router'
-import { useEffect } from 'react'
-
-const DEFAULT_TAB = '/settings/language-region'
+import { createFileRoute, Outlet, useRouterState } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/settings')({
   component: RouteComponent,
-  beforeLoad: ({ location }) => {
-    if (
-      location.pathname.endsWith('settings') ||
-      location.pathname.endsWith('settings/')
-    )
-      throw redirect({
-        to: DEFAULT_TAB,
-        replace: true,
-      })
-  },
-  notFoundComponent: NotFoundRedirect,
 })
-
-function NotFoundRedirect() {
-  const navigate = Route.useNavigate()
-
-  useEffect(() => {
-    navigate({ to: DEFAULT_TAB, replace: true })
-  }, [navigate])
-
-  return null
-}
 
 function RouteComponent() {
   const routerState = useRouterState()
