@@ -1,3 +1,4 @@
+import { IconButton } from '@/components/ui/buttons/icon-button'
 import {
   Card,
   CardContent,
@@ -7,15 +8,34 @@ import {
 import { Section } from '@/components/ui/display/section'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
-import { Check, Leaf, Monitor, Moon, Pipette, Sun } from 'lucide-react'
+import {
+  Check,
+  CircleArrowLeft,
+  Leaf,
+  Monitor,
+  Moon,
+  Pipette,
+  Sun,
+} from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useLocalStorage } from 'usehooks-ts'
 
-export function AppearacneSettings() {
+type AppearanceSettingsProps = {
+  showTitle?: boolean
+}
+
+export function AppearanceSettings({ showTitle }: AppearanceSettingsProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Erscheinung</CardTitle>
+        <CardTitle className="flex flex-row items-center gap-x-2">
+          {showTitle && (
+            <>
+              <IconButton icon={CircleArrowLeft} size="lg" to="/settings" />
+              <span>Erscheinung</span>
+            </>
+          )}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <Section

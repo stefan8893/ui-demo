@@ -3,7 +3,7 @@ import { routeTree } from './routeTree.gen'
 
 const basePath = import.meta.env.BASE_URL
 
-export function getRouter() {
+export function createRouter() {
   const router = createTanStackRouter({
     routeTree,
     scrollRestoration: true,
@@ -18,6 +18,6 @@ export function getRouter() {
 declare module '@tanstack/react-router' {
   // eslint-disable-next-line no-unused-vars
   interface Register {
-    router: ReturnType<typeof getRouter>
+    router: ReturnType<typeof createRouter>
   }
 }
