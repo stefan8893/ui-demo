@@ -1,4 +1,9 @@
-import { Card, CardContent } from '@/components/ui/display/card'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/display/card'
 import { Section } from '@/components/ui/display/section'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
@@ -9,6 +14,9 @@ import { useLocalStorage } from 'usehooks-ts'
 export function AppearacneSettings() {
   return (
     <Card>
+      <CardHeader>
+        <CardTitle>Erscheinung</CardTitle>
+      </CardHeader>
       <CardContent>
         <Section
           title="Helligkeit"

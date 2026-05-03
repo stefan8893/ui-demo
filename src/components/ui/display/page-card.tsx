@@ -1,17 +1,17 @@
 import { cn } from '@/lib/utils'
+import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 
 type SectionCardProps = {
-  children: React.ReactNode
   title?: string
   description?: string
-  className?: string
-}
+} & PropsWithChildren<ComponentPropsWithoutRef<'section'>>
 
 export function PageCard({
   children,
   title,
   description,
   className,
+  ...props
 }: SectionCardProps) {
   return (
     <div
@@ -20,6 +20,7 @@ export function PageCard({
         'p-4 sm:p-6 lg:p-8',
         className,
       )}
+      {...props}
     >
       {(title || description) && (
         <div className="mb-6 space-y-1.5">

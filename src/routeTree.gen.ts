@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SettingsRouteRouteImport } from './routes/settings/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SettingsIndexRouteImport } from './routes/settings/index'
 import { Route as SettingsLanguageRegionRouteImport } from './routes/settings/language-region'
 import { Route as SettingsAppearanceRouteImport } from './routes/settings/appearance'
 
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsIndexRoute = SettingsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SettingsRouteRoute,
 } as any)
 const SettingsLanguageRegionRoute = SettingsLanguageRegionRouteImport.update({
   id: '/language-region',
@@ -40,12 +46,13 @@ export interface FileRoutesByFullPath {
   '/settings': typeof SettingsRouteRouteWithChildren
   '/settings/appearance': typeof SettingsAppearanceRoute
   '/settings/language-region': typeof SettingsLanguageRegionRoute
+  '/settings/': typeof SettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/settings': typeof SettingsRouteRouteWithChildren
   '/settings/appearance': typeof SettingsAppearanceRoute
   '/settings/language-region': typeof SettingsLanguageRegionRoute
+  '/settings': typeof SettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,6 +60,7 @@ export interface FileRoutesById {
   '/settings': typeof SettingsRouteRouteWithChildren
   '/settings/appearance': typeof SettingsAppearanceRoute
   '/settings/language-region': typeof SettingsLanguageRegionRoute
+  '/settings/': typeof SettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -61,14 +69,16 @@ export interface FileRouteTypes {
     | '/settings'
     | '/settings/appearance'
     | '/settings/language-region'
+    | '/settings/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/settings' | '/settings/appearance' | '/settings/language-region'
+  to: '/' | '/settings/appearance' | '/settings/language-region' | '/settings'
   id:
     | '__root__'
     | '/'
     | '/settings'
     | '/settings/appearance'
     | '/settings/language-region'
+    | '/settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings/': {
+      id: '/settings/'
+      path: '/'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof SettingsIndexRouteImport
+      parentRoute: typeof SettingsRouteRoute
+    }
     '/settings/language-region': {
       id: '/settings/language-region'
       path: '/language-region'
@@ -112,11 +129,13 @@ declare module '@tanstack/react-router' {
 interface SettingsRouteRouteChildren {
   SettingsAppearanceRoute: typeof SettingsAppearanceRoute
   SettingsLanguageRegionRoute: typeof SettingsLanguageRegionRoute
+  SettingsIndexRoute: typeof SettingsIndexRoute
 }
 
 const SettingsRouteRouteChildren: SettingsRouteRouteChildren = {
   SettingsAppearanceRoute: SettingsAppearanceRoute,
   SettingsLanguageRegionRoute: SettingsLanguageRegionRoute,
+  SettingsIndexRoute: SettingsIndexRoute,
 }
 
 const SettingsRouteRouteWithChildren = SettingsRouteRoute._addFileChildren(
