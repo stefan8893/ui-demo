@@ -1,6 +1,6 @@
 import { CardTitle } from '@/components/ui/display/card'
 import { Link } from '@tanstack/react-router'
-import { CircleChevronLeft } from 'lucide-react'
+import { ChevronLeft } from 'lucide-react'
 
 type SettingsCardTitleProps = {
   title: string
@@ -17,7 +17,7 @@ export function SettingsCardTitle({
         {showTitle && (
           <>
             <Link to="/settings">
-              <CircleChevronLeft size={40} />
+              <ChevronLeft size={32} />
             </Link>
             <span>{title}</span>
           </>

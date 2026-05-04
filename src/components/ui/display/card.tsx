@@ -27,11 +27,12 @@ function Card({
         data-size={size}
         data-variant={variant}
         className={cn(
-          'group/card @container/card flex flex-col gap-6 overflow-hidden rounded-xl py-4 text-sm has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl',
+          'group/card @container/card flex flex-col gap-2 overflow-hidden text-sm has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl',
           'data-[variant=default]:bg-card data-[variant=default]:text-card-foreground',
           'data-[variant=muted]:bg-muted/50 data-[variant=muted]:text-muted-foreground data-[variant=muted]:shadow-none data-[variant=muted]:ring-transparent',
+          'data-[variant=muted]:rounded-xl data-[variant=muted]:py-4',
           withBorder &&
-            'data-[variant=default]:ring-foreground/10 data-[variant=default]:ring-1',
+            'data-[variant=default]:ring-foreground/10 rounded-xl py-4 data-[variant=default]:ring-1',
           className,
         )}
         {...props}

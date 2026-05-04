@@ -3,11 +3,11 @@ import { ColorBox } from './color-box'
 
 export function ColorsGuide() {
   return (
-    <Card className="ring-0">
-      <CardHeader className="px-0">
+    <Card>
+      <CardHeader>
         <CardTitle>Farben</CardTitle>
       </CardHeader>
-      <CardContent className="px-0">
+      <CardContent>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <ColorBox
             label="Primary"

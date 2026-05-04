@@ -17,7 +17,7 @@ export function ButtonsGuide() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {/* Primary */}
           <div className="flex flex-col gap-3">
             <div className="space-y-1">
