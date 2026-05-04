@@ -17,7 +17,7 @@ export function SettingsCardTitle({
         {showTitle && (
           <>
             <Link to="/settings">
-              <CircleChevronLeft size={32} />
+              <CircleChevronLeft size={40} />
             </Link>
             <span>{title}</span>
           </>
