@@ -16,7 +16,7 @@ export function Section({
   const hasHeader = title || description
 
   return (
-    <section {...props} className={cn('flex flex-col gap-y-4', className)}>
+    <section {...props} className={cn('flex flex-col gap-y-8', className)}>
       {hasHeader && (
         <div className="flex flex-col gap-y-1">
           {title && (

@@ -89,7 +89,7 @@ function AccentThemeSettings() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
       <button
         onClick={() => updateAccent('default')}
         className={`group relative flex items-start gap-3 rounded-xl border p-4 transition-all hover:shadow-md ${
