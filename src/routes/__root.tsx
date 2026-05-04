@@ -5,16 +5,21 @@ import '@/styles.css'
 import { ThemeProvider } from 'next-themes'
 import { Layout } from '@/layout/layout'
 import { useEffect } from 'react'
+import { useLocalStorage } from 'usehooks-ts'
 
 export const Route = createRootRoute({
   component: RootComponent,
 })
 
 function RootComponent() {
+  const [accentTheme] = useLocalStorage('accent-theme', 'default', {
+    serializer: (value) => value,
+    deserializer: (value) => value,
+  })
+
   useEffect(() => {
-    const savedAccent = localStorage.getItem('accent-theme')
-    if (savedAccent && savedAccent !== 'default') {
-      document.documentElement.setAttribute('data-theme', savedAccent)
+    if (accentTheme !== 'default') {
+      document.documentElement.setAttribute('data-theme', accentTheme)
     }
   }, [])
 
