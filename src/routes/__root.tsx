@@ -19,7 +19,7 @@ function RootComponent() {
 
   useEffect(() => {
     if (accentTheme !== 'default') {
-      document.documentElement.setAttribute('data-theme', accentTheme)
+      document.documentElement.setAttribute('data-accent-theme', accentTheme)
     }
   }, [])
 

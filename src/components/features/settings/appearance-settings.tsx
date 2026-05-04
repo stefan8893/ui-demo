@@ -82,9 +82,9 @@ function AccentThemeSettings() {
   const updateAccent = (newAccent: 'default' | 'organic') => {
     setAccentTheme(newAccent)
     if (newAccent === 'default') {
-      document.documentElement.removeAttribute('data-theme')
+      document.documentElement.removeAttribute('data-accent-theme')
     } else {
-      document.documentElement.setAttribute('data-theme', newAccent)
+      document.documentElement.setAttribute('data-accent-theme', newAccent)
     }
   }
 
