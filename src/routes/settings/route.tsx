@@ -61,7 +61,7 @@ function RouteComponent() {
   useLayoutEffect(() => {
     const currentDepth = pathname.split('/').filter(Boolean).length
 
-    setDirection(currentDepth < 2 ? 'forward' : 'backward')
+    setDirection(currentDepth === 2 ? 'backward' : 'forward')
   }, [pathname])
 
   useEffect(() => {

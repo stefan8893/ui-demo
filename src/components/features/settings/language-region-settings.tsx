@@ -1,11 +1,5 @@
-import { IconButton } from '@/components/ui/buttons/icon-button'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/display/card'
-import { CircleArrowLeft } from 'lucide-react'
+import { SettingsCardTitle } from '@/components/features/settings/settings-mobile-title'
+import { Card, CardContent, CardHeader } from '@/components/ui/display/card'
 
 type LanguageRegionSettingsProps = {
   showTitle?: boolean
@@ -18,14 +12,7 @@ export function LanguageRegionSettings({
     <>
       <Card>
         <CardHeader>
-          <CardTitle className="flex flex-row items-center gap-x-2">
-            {showTitle && (
-              <>
-                <IconButton icon={CircleArrowLeft} size="lg" to="/settings" />
-                <span>Sprache & Region</span>
-              </>
-            )}
-          </CardTitle>
+          <SettingsCardTitle title="Sprache & Region" showTitle={showTitle} />
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground mb-6 text-sm">

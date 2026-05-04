@@ -4,7 +4,7 @@ import { Link } from '@tanstack/react-router'
 
 export function SettingsMobileMenu() {
   return (
-    <Card title="Einstellungen">
+    <Card>
       <Link
         to={'/settings/language-region'}
         className={cn(

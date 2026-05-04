@@ -44,7 +44,7 @@ export function SettingsTabContent({
 }: SettingsTabContentProps) {
   return (
     <TabsContent value={value} className="m-0 focus-visible:outline-none">
-      <div className="mb-8">
+      <div className="mb-2">
         <h2 className="text-foreground text-2xl font-bold tracking-tight">
           {title}
         </h2>

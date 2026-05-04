@@ -23,7 +23,7 @@ export function PageCard({
       {...props}
     >
       {(title || description) && (
-        <div className="mb-6 space-y-1.5">
+        <div className="mb-6 flex flex-col gap-y-1.5">
           {title && (
             <h2 className="mb-2 text-3xl font-bold tracking-tight">{title}</h2>
           )}
