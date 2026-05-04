@@ -19,7 +19,7 @@ export function ButtonsGuide() {
       <CardContent>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {/* Primary */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
             <div className="space-y-1">
               <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Primary
@@ -34,7 +34,7 @@ export function ButtonsGuide() {
           </div>
 
           {/* Secondary */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
             <div className="space-y-1">
               <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Secondary
@@ -49,7 +49,7 @@ export function ButtonsGuide() {
           </div>
 
           {/* Outline */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
             <div className="space-y-1">
               <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Outline
@@ -66,7 +66,7 @@ export function ButtonsGuide() {
           </div>
 
           {/* Destructive */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
             <div className="space-y-1">
               <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
                 Destructive
