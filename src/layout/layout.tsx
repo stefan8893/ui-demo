@@ -1,12 +1,14 @@
 import { useSmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import type { SmartHeaderPosition } from '@/hooks/useSmartHeaderPosition'
 import { cn } from '@/lib/utils'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { SidebarContent } from './sidebar-content'
 import { MobileSidebar } from './mobile-sidebar'
 import { Outlet } from '@tanstack/react-router'
 import packageInfo from '@/../package.json'
 import { Header } from './header'
+import { useLayoutStore } from '@/stores/useLayoutStore'
+import { useResizeObserver } from 'usehooks-ts'
 
 export function Layout() {
   const HEADER_HEIGHT = 72
@@ -15,6 +17,20 @@ export function Layout() {
 
   const [showSidebar, setShowSidebar] = useState(true)
   const [showMobileSidebar, setShowMobileSidebar] = useState(false)
+
+  const mainContentContainer = useRef<HTMLDivElement>(null!)
+  const setIsCompact = useLayoutStore((state) => state.setIsCompact)
+
+  useResizeObserver({
+    ref: mainContentContainer,
+    onResize: ({ width }) => {
+      const shouldBeCompact = width !== undefined && width < 700
+
+      window.requestAnimationFrame(() => {
+        setIsCompact(shouldBeCompact)
+      })
+    },
+  })
 
   return (
     <div
@@ -65,7 +81,7 @@ export function Layout() {
         </header>
 
         <main className="flex-1 px-2 pt-4 pb-20 sm:px-4 sm:pt-6 md:px-6 md:pt-8 lg:pt-10">
-          <div className="mx-auto w-full max-w-4xl">
+          <div ref={mainContentContainer} className="mx-auto w-full max-w-4xl">
             <Outlet />
           </div>
         </main>

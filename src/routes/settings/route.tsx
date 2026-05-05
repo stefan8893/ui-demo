@@ -8,13 +8,13 @@ import {
 
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { useResizeObserver } from 'usehooks-ts'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { Tabs } from '@/components/ui/display/tabs'
 import { LanguageRegionSettings } from '@/components/features/settings/language-region-settings'
 import { AppearanceSettings } from '@/components/features/settings/appearance-settings'
 import { SettingsMobileMenu } from '@/components/features/settings/settings-mobile-menu'
 import { SettingsDesktopMenu } from '@/components/features/settings/settings-desktop-menu'
+import { useLayoutStore } from '@/stores/useLayoutStore'
 
 export const Route = createFileRoute('/settings')({
   component: RouteComponent,
@@ -46,14 +46,9 @@ const componentByPath: Record<string, React.ReactNode> = {
 function RouteComponent() {
   const { location } = useRouterState()
   const navigate = useNavigate()
-  const settingsContainer = useRef<HTMLDivElement>(null)
-  const { width = 0 } = useResizeObserver({
-    ref: settingsContainer as React.RefObject<HTMLDivElement>,
-    box: 'border-box',
-  })
 
   const [wasAutoRedirected, setWasAutoRedirected] = useState(false)
-  const isCompact = width < 600
+  const isCompact = useLayoutStore((state) => state.isCompact)
   const pathname = location.pathname.replace(/\/$/, '') || '/'
   const activeTab = pathname.split('/').pop()
   const [direction, setDirection] = useState<Direction>('forward')
@@ -89,7 +84,7 @@ function RouteComponent() {
 
   return (
     <PageCard title="Einstellungen">
-      <div ref={settingsContainer} className="relative overflow-hidden">
+      <div className="relative overflow-hidden">
         {isCompact ? (
           <AnimatePresence mode="popLayout" initial={false} custom={direction}>
             <motion.div
