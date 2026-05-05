@@ -14,14 +14,7 @@ export function SettingsTabTrigger({
   className,
 }: SettingsTabTriggerProps) {
   return (
-    <TabsTrigger
-      value={value}
-      asChild
-      className={cn(
-        'data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground hover:bg-accent hover:text-accent-foreground w-full cursor-pointer justify-start rounded-xl px-3 py-2 text-sm font-medium',
-        className,
-      )}
-    >
+    <TabsTrigger value={value} asChild className={cn('', className)}>
       <Link to={`/settings/${value}`}>{children}</Link>
     </TabsTrigger>
   )
@@ -29,31 +22,13 @@ export function SettingsTabTrigger({
 
 type SettingsTabContentProps = {
   value: string
-  title: string
-  description?: string
+
   children: React.ReactNode
 }
 
 export function SettingsTabContent({
   value,
-  title,
-  description,
   children,
 }: SettingsTabContentProps) {
-  return (
-    <TabsContent value={value} className="m-0 focus-visible:outline-none">
-      <div className="mb-2">
-        <h2 className="text-foreground text-2xl font-bold tracking-tight">
-          {title}
-        </h2>
-        {description && (
-          <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
-            {description}
-          </p>
-        )}
-      </div>
-
-      <div className="flex flex-col gap-y-8">{children}</div>
-    </TabsContent>
-  )
+  return <TabsContent value={value}>{children}</TabsContent>
 }

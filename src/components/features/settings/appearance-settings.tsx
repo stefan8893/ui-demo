@@ -1,5 +1,4 @@
-import { SettingsCardTitle } from '@/components/features/settings/settings-mobile-title'
-import { Card, CardContent, CardHeader } from '@/components/ui/display/card'
+import { Card, CardContent } from '@/components/ui/display/card'
 import { Section } from '@/components/ui/display/section'
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
@@ -7,16 +6,9 @@ import { Check, Leaf, Monitor, Moon, Pipette, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useLocalStorage } from 'usehooks-ts'
 
-type AppearanceSettingsProps = {
-  showTitle?: boolean
-}
-
-export function AppearanceSettings({ showTitle }: AppearanceSettingsProps) {
+export function AppearanceSettings() {
   return (
     <Card>
-      <CardHeader>
-        <SettingsCardTitle title="Erscheinung" showTitle={showTitle} />
-      </CardHeader>
       <CardContent>
         <Section
           title="Helligkeit"
