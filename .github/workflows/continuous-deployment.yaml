@@ -80,13 +80,13 @@ jobs:
 
       # GitHub Pages SPA Routing Workaround:
       # GitHub Pages does not natively support Single Page Application (SPA) routing.
-      # Requests to sub-routes (e.g., /ui-demo/about) return a 404 because the file doesn't exist on the server.
+      # Requests to sub-routes (e.g., /ui-kit/about) return a 404 because the file doesn't exist on the server.
       # By copying index.html to 404.html, GitHub serves the app for any unknown path,
       # allowing TanStack Router to take over and render the correct client-side route.
       - name: Build
         run: |
           npm version ${{ needs.metadata.outputs.version }} --allow-same-version --no-git-tag-version
-          npm run build -- --base=/ui-demo/
+          npm run build -- --base=/ui-kit/
           cp dist/index.html dist/404.html
 
       - name: Setup Pages

@@ -1,5 +1,5 @@
 {
-  "projectName": "ui-demo",
+  "projectName": "ui-kit",
   "mode": "file-router",
   "typescript": true,
   "packageManager": "npm",
@@ -12,7 +12,5 @@
   "routerOnly": true,
   "version": 1,
   "framework": "react",
-  "chosenAddOns": [
-    "eslint"
-  ]
+  "chosenAddOns": ["eslint"]
 }

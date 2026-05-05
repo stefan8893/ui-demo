@@ -6,7 +6,7 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
     <div className="text-foreground/70 flex h-full flex-col">
       <div className="p-6">
         <h2 className="text-foreground text-xl font-bold tracking-tight">
-          UI Demo
+          UI Kit
         </h2>
       </div>
 

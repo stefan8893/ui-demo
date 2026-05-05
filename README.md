@@ -6,7 +6,7 @@ This project serves as a centralized UI library. It leverages the power of **Vit
 
 ## 🚀 Live Demo
 
-Check out the components in action: [https://stefan8893.github.io/ui-demo/](https://stefan8893.github.io/ui-demo/)
+Check out the components in action: [https://stefan8893.github.io/ui-kit/](https://stefan8893.github.io/ui-kit/)
 
 ---
 

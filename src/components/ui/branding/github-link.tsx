@@ -10,7 +10,7 @@ export function GithubLink({ className, ...props }: React.ComponentProps<'a'>) {
       className={cn('cursor-pointer', className)}
     >
       <a
-        href="https://github.com/stefan8893/ui-demo"
+        href="https://github.com/stefan8893/ui-kit"
         target="_blank"
         rel="noreferrer"
         {...props}
