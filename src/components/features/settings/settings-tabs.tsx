@@ -18,7 +18,7 @@ export function SettingsTabTrigger({
       value={value}
       asChild
       className={cn(
-        'data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground hover:bg-accent hover:text-accent-foreground w-full cursor-pointer justify-start px-3 py-2 text-sm font-medium',
+        'data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground hover:bg-accent hover:text-accent-foreground w-full cursor-pointer justify-start rounded-xl px-3 py-2 text-sm font-medium',
         className,
       )}
     >

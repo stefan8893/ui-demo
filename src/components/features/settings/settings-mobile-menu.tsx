@@ -1,5 +1,7 @@
 import { ListItem } from '@/components/ui/display/list-item'
+import { cn } from '@/lib/utils'
 import { Link } from '@tanstack/react-router'
+import { useState } from 'react'
 
 export function SettingsMobileMenu() {
   return (
@@ -16,8 +18,17 @@ export function SettingsMobileMenu() {
 }
 
 function MenuItem({ title }: { title: string }) {
+  const [isAnimating, setIsAnimating] = useState(false)
+
   return (
-    <ListItem className="flex h-12 flex-row items-center px-3 py-2 text-sm font-medium">
+    <ListItem
+      onClick={() => setIsAnimating(true)}
+      onAnimationEnd={() => setIsAnimating(false)}
+      className={cn(
+        'flex h-12 flex-row items-center px-3 py-2 text-sm font-medium',
+        isAnimating && 'animate-flash-hard',
+      )}
+    >
       {title}
     </ListItem>
   )

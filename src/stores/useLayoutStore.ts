@@ -6,6 +6,6 @@ type LayoutState = {
 }
 
 export const useLayoutStore = create<LayoutState>((set) => ({
-  isCompact: false,
+  isCompact: true,
   setIsCompact: (compact) => set({ isCompact: compact }),
 }))

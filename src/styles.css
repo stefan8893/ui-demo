@@ -11,6 +11,34 @@
   --font-body: 'Inter Variable', sans-serif;
   --font-sans: 'Inter Variable', sans-serif;
   --font-mono: 'JetBrains Mono Variable', monospace;
+
+  @keyframes flash {
+    0% {
+      background-color: transparent;
+    }
+    20% {
+      background-color: var(--color-accent);
+      color: var(--color-accent-foreground);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  --animate-flash: flash 400ms ease-out;
+
+  @keyframes hard-flash {
+    0%,
+    99.9% {
+      background-color: var(--color-accent);
+      color: var(--color-accent-foreground);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  --animate-flash-hard: hard-flash 400ms;
 }
 
 @theme inline {
