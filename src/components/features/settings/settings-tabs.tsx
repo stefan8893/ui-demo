@@ -18,13 +18,11 @@ export function SettingsTabTrigger({
       value={value}
       asChild
       className={cn(
-        'data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground hover:bg-muted/50 w-full cursor-pointer justify-start px-3 py-2 text-sm font-medium transition-all',
+        'data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground hover:bg-accent hover:text-accent-foreground w-full cursor-pointer justify-start px-3 py-2 text-sm font-medium',
         className,
       )}
     >
-      <Link to={`/settings/${value}`} className="block h-full w-full text-left">
-        {children}
-      </Link>
+      <Link to={`/settings/${value}`}>{children}</Link>
     </TabsTrigger>
   )
 }

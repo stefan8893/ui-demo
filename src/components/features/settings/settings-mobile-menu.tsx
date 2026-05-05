@@ -1,29 +1,24 @@
-import { Card } from '@/components/ui/display/card'
-import { cn } from '@/lib/utils'
+import { ListItem } from '@/components/ui/display/list-item'
 import { Link } from '@tanstack/react-router'
 
 export function SettingsMobileMenu() {
   return (
-    <Card>
-      <Link
-        to={'/settings/language-region'}
-        className={cn(
-          'block h-full w-full rounded-xl text-left',
-          'data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer justify-start px-3 py-2 text-sm font-medium transition-all',
-        )}
-      >
-        Sprache & Region
+    <div className="flex flex-col gap-2">
+      <Link to={'/settings/language-region'}>
+        <MenuItem title="Sprache & Region" />
       </Link>
 
-      <Link
-        to={'/settings/appearance'}
-        className={cn(
-          'block h-full w-full rounded-xl text-left',
-          'data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer justify-start px-3 py-2 text-sm font-medium transition-all',
-        )}
-      >
-        Erscheinung
+      <Link to={'/settings/appearance'}>
+        <MenuItem title="Erscheinung" />
       </Link>
-    </Card>
+    </div>
+  )
+}
+
+function MenuItem({ title }: { title: string }) {
+  return (
+    <ListItem className="flex h-12 flex-row items-center px-3 py-2 text-sm font-medium">
+      {title}
+    </ListItem>
   )
 }
