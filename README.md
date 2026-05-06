@@ -2,7 +2,7 @@
 
 A dedicated workspace for learning **React**, mastering **shadcn/ui**, and building a reusable design system for future projects.
 
-This project serves as a centralized UI library. It leverages the power of **Vite**, **Tailwind CSS**, and **Radix UI** primitives to create accessible, and highly customizable components.
+This project serves as a centralized UI library. It leverages the power of **Vite**, **Tailwind CSS**, and **Radix UI** primitives to create accessible and highly customizable components.
 
 ## 🚀 Live Demo
 
