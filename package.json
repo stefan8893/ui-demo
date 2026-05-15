@@ -13,7 +13,7 @@
 		"test": "vitest run",
 		"lint": "biome check --config-path=./biome.local.json .",
 		"lint:fix": "biome check --write --config-path=./biome.local.json .",
-		"lint:ci": "biome check --no-errors-on-unmatched"
+		"lint:ci": "biome ci"
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.2.8",
