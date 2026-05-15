@@ -10,7 +10,6 @@ import { PageCard } from '@/components/ui/display/page-card'
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
-	const foo = 'sdf'
 	return (
 		<PageCard
 			title="Design System"
