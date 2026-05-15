@@ -16,7 +16,6 @@ export function createRouter() {
 }
 
 declare module '@tanstack/react-router' {
-	// eslint-disable-next-line no-unused-vars
 	interface Register {
 		router: ReturnType<typeof createRouter>
 	}
