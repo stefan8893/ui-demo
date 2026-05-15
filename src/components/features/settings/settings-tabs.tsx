@@ -3,32 +3,32 @@ import { TabsContent, TabsTrigger } from '@/components/ui/display/tabs'
 import { cn } from '@/lib/utils'
 
 type SettingsTabTriggerProps = {
-  value: 'appearance' | 'language-region'
-  children: React.ReactNode
-  className?: string
+	value: 'appearance' | 'language-region'
+	children: React.ReactNode
+	className?: string
 }
 
 export function SettingsTabTrigger({
-  value,
-  children,
-  className,
+	value,
+	children,
+	className,
 }: SettingsTabTriggerProps) {
-  return (
-    <TabsTrigger value={value} asChild className={cn('', className)}>
-      <Link to={`/settings/${value}`}>{children}</Link>
-    </TabsTrigger>
-  )
+	return (
+		<TabsTrigger value={value} asChild className={cn('', className)}>
+			<Link to={`/settings/${value}`}>{children}</Link>
+		</TabsTrigger>
+	)
 }
 
 type SettingsTabContentProps = {
-  value: string
+	value: string
 
-  children: React.ReactNode
+	children: React.ReactNode
 }
 
 export function SettingsTabContent({
-  value,
-  children,
+	value,
+	children,
 }: SettingsTabContentProps) {
-  return <TabsContent value={value}>{children}</TabsContent>
+	return <TabsContent value={value}>{children}</TabsContent>
 }
