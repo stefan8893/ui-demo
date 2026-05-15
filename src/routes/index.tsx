@@ -10,21 +10,21 @@ import { PageCard } from '@/components/ui/display/page-card'
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
-	return (
-		<PageCard
-			title="Design System"
-			description="Struktur und Leitlinien für eine einheitliche User Experience"
-		>
-			<div className="flex flex-col gap-y-8">
-				<ButtonsGuide />
-				<ColorsGuide />
-				<div className="grid gap-4 md:grid-cols-2">
-					<IconButtonsGuide />
-					<ListGuide />
-					<DefaultCardGuide />
-					<MutedCardGuide />
-				</div>
-			</div>
-		</PageCard>
-	)
+  return (
+    <PageCard
+      title="Design System"
+      description="Struktur und Leitlinien für eine einheitliche User Experience"
+    >
+      <div className="flex flex-col gap-y-8">
+        <ButtonsGuide />
+        <ColorsGuide />
+        <div className="grid gap-4 md:grid-cols-2">
+          <IconButtonsGuide />
+          <ListGuide />
+          <DefaultCardGuide />
+          <MutedCardGuide />
+        </div>
+      </div>
+    </PageCard>
+  )
 }

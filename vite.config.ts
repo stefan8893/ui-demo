@@ -6,16 +6,16 @@ import viteReact from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-	resolve: {
-		tsconfigPaths: true,
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-		},
-	},
-	plugins: [
-		tanstackRouter({ target: 'react', autoCodeSplitting: true }),
-		viteReact(),
-		tailwindcss(),
-		devtools(),
-	],
+  resolve: {
+    tsconfigPaths: true,
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  plugins: [
+    tanstackRouter({ target: 'react', autoCodeSplitting: true }),
+    viteReact(),
+    tailwindcss(),
+    devtools(),
+  ],
 })

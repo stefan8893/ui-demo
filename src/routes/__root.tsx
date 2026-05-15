@@ -8,37 +8,37 @@ import { Layout } from '@/layout/layout'
 import '@/styles.css'
 
 export const Route = createRootRoute({
-	component: RootComponent,
+  component: RootComponent,
 })
 
 function RootComponent() {
-	const [accentTheme] = useLocalStorage('accent-theme', 'default', {
-		serializer: (value) => value,
-		deserializer: (value) => value,
-	})
+  const [accentTheme] = useLocalStorage('accent-theme', 'default', {
+    serializer: (value) => value,
+    deserializer: (value) => value,
+  })
 
-	useEffect(() => {
-		if (accentTheme !== 'default') {
-			document.documentElement.setAttribute('data-accent-theme', accentTheme)
-		}
-	}, [accentTheme])
+  useEffect(() => {
+    if (accentTheme !== 'default') {
+      document.documentElement.setAttribute('data-accent-theme', accentTheme)
+    }
+  }, [accentTheme])
 
-	return (
-		<>
-			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-				<Layout />
-			</ThemeProvider>
-			<TanStackDevtools
-				config={{
-					position: 'bottom-right',
-				}}
-				plugins={[
-					{
-						name: 'TanStack Router',
-						render: <TanStackRouterDevtoolsPanel />,
-					},
-				]}
-			/>
-		</>
-	)
+  return (
+    <>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Layout />
+      </ThemeProvider>
+      <TanStackDevtools
+        config={{
+          position: 'bottom-right',
+        }}
+        plugins={[
+          {
+            name: 'TanStack Router',
+            render: <TanStackRouterDevtoolsPanel />,
+          },
+        ]}
+      />
+    </>
+  )
 }
