@@ -11,9 +11,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "vitest run",
-		"lint": "eslint",
-		"format": "prettier --check .",
-		"check": "prettier --write . && eslint --fix"
+		"lint": "biome lint",
+		"format": "prettier --check ."
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.2.8",
