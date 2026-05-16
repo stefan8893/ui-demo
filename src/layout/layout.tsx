@@ -19,15 +19,17 @@ export function Layout() {
   const [showMobileSidebar, setShowMobileSidebar] = useState(false)
 
   const mainContentContainer = useRef<HTMLDivElement>(null!)
-  const setIsCompact = useLayoutStore((state) => state.setIsCompact)
+  const setIsContentCompact = useLayoutStore(
+    (state) => state.setIsContentCompact,
+  )
 
   useResizeObserver({
     ref: mainContentContainer,
     onResize: ({ width }) => {
-      const isContentCompact = width !== undefined && width < 448
+      const isContentCompact = width !== undefined && width < 600
 
       window.requestAnimationFrame(() => {
-        setIsCompact(isContentCompact)
+        setIsContentCompact(isContentCompact)
       })
     },
   })

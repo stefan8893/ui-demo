@@ -6,9 +6,6 @@ import {
   useRouterState,
 } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { AppearanceSettings } from '@/components/features/settings/appearance-settings'
-import { LanguageRegionSettings } from '@/components/features/settings/language-region-settings'
-import { SettingsMobileMenu } from '@/components/features/settings/settings-mobile-menu'
 import { ListItem } from '@/components/ui/display/list-item'
 import { PageCard } from '@/components/ui/display/page-card'
 import { useLayoutStore } from '@/stores/useLayoutStore'
@@ -17,36 +14,30 @@ export const Route = createFileRoute('/settings')({
   component: RouteComponent,
 })
 
-const componentByPath: Record<string, React.ReactNode> = {
-  '/settings': <SettingsMobileMenu />,
-  '/settings/language-region': <LanguageRegionSettings />,
-  '/settings/appearance': <AppearanceSettings />,
-} as const
-
 function RouteComponent() {
   const { location } = useRouterState()
   const navigate = useNavigate()
 
   const [wasAutoRedirected, setWasAutoRedirected] = useState(false)
-  const isCompact = useLayoutStore((state) => state.isCompact)
+  const isContentCompact = useLayoutStore((state) => state.isContentCompact)
   const pathname = location.pathname.replace(/\/$/, '') || '/'
 
   useEffect(() => {
-    if (!isCompact && pathname === '/settings') {
+    if (!isContentCompact && pathname === '/settings') {
       setWasAutoRedirected(true)
       navigate({
         to: '/settings/language-region',
         replace: true,
       })
     }
-  }, [isCompact, pathname, navigate])
+  }, [isContentCompact, pathname, navigate])
 
   useEffect(() => {
-    if (isCompact && wasAutoRedirected && pathname !== '/settings') {
+    if (isContentCompact && wasAutoRedirected && pathname !== '/settings') {
       setWasAutoRedirected(false)
       navigate({ to: '/settings', replace: true })
     }
-  }, [isCompact, wasAutoRedirected, pathname, navigate])
+  }, [isContentCompact, wasAutoRedirected, pathname, navigate])
 
   const handleTabsListClick = () => {
     if (wasAutoRedirected) {
@@ -54,11 +45,11 @@ function RouteComponent() {
     }
   }
 
-  const getContent = () => {
-    if (isCompact === undefined) {
+  const getSettingsContent = () => {
+    if (isContentCompact === undefined) {
       return null
-    } else if (isCompact) {
-      return componentByPath[pathname] ?? <SettingsMobileMenu />
+    } else if (isContentCompact) {
+      return <Outlet />
     } else {
       return (
         <div className="grid w-full grid-cols-[200px_minmax(0,1fr)] gap-12">
@@ -70,7 +61,7 @@ function RouteComponent() {
               <ListItem>Erscheinung</ListItem>
             </Link>
           </div>
-          <div className="min-w-0">
+          <div>
             <Outlet />
           </div>
         </div>
@@ -78,5 +69,5 @@ function RouteComponent() {
     }
   }
 
-  return <PageCard title="Einstellungen">{getContent()}</PageCard>
+  return <PageCard title="Einstellungen">{getSettingsContent()}</PageCard>
 }
