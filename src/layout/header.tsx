@@ -35,8 +35,8 @@ export function Header({
       />
 
       <div className="ml-auto flex flex-row flex-nowrap items-center gap-3">
-        <IconButton icon={Home} to="/" />
-        <IconButton icon={Settings} to="/settings" />
+        <IconButton icon={Home} to="/" size="lg" />
+        <IconButton icon={Settings} to="/settings" size="lg" />
         <GithubLink />
         <ThemeToggle />
       </div>
