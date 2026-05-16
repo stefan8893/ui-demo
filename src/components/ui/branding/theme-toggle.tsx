@@ -1,6 +1,6 @@
 import { Monitor, Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
-
+import type { ComponentPropsWithoutRef } from 'react'
 import { Button } from '@/components/ui/buttons/button'
 import {
   DropdownMenu,
@@ -10,9 +10,7 @@ import {
 } from '@/components/ui/overlays/dropdown-menu'
 import { cn } from '@/lib/utils'
 
-export function ThemeToggle({
-  className,
-}: React.HTMLAttributes<HTMLDivElement>) {
+export function ThemeToggle({ className }: ComponentPropsWithoutRef<'div'>) {
   const { setTheme } = useTheme()
 
   return (
