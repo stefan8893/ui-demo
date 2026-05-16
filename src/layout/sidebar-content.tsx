@@ -11,19 +11,14 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
       </div>
 
       <nav className="flex flex-col gap-1 px-2 pb-6">
-        <NavItem
-          to="/"
-          label="Home"
-          icon={<Home size={20} />}
-          isMobile={isMobile}
-        />
+        <NavItem to="/" label="Home" icon={<Home />} isMobile={isMobile} />
       </nav>
 
       <div className="mt-auto border-border border-t p-4">
         <NavItem
           to="/settings"
           label="Einstellungen"
-          icon={<Settings size={20} />}
+          icon={<Settings />}
           isMobile={isMobile}
         />
       </div>

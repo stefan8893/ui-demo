@@ -1,6 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { SettingsMobileMenu } from '@/components/features/settings/settings-mobile-menu'
+import { createFileRoute, redirect } from '@tanstack/react-router'
+import { SettingsMenu } from '@/components/features/settings/settings-menu'
+import { useLayoutStore } from '@/stores/useLayoutStore'
 
 export const Route = createFileRoute('/settings/')({
-  component: SettingsMobileMenu,
+  beforeLoad: () => {
+    const isContentCompact = useLayoutStore.getState().isContentCompact
+
+    if (isContentCompact === undefined) return
+    if (isContentCompact === false)
+      throw redirect({ to: '/settings/language-region', replace: true })
+  },
+  component: SettingsMenu,
 })

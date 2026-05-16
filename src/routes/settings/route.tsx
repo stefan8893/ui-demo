@@ -1,25 +1,15 @@
 import {
   createFileRoute,
-  Link,
   Outlet,
-  redirect,
   useNavigate,
   useRouterState,
 } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { ListItem } from '@/components/ui/display/list-item'
+import { SettingsMenu } from '@/components/features/settings/settings-menu'
 import { PageCard } from '@/components/ui/display/page-card'
 import { useLayoutStore } from '@/stores/useLayoutStore'
 
 export const Route = createFileRoute('/settings')({
-  beforeLoad: (ctx) => {
-    const isContentCompact = useLayoutStore.getState().isContentCompact
-    const pathname = ctx.location.pathname.replace(/\/$/, '')
-
-    if (isContentCompact === undefined) return
-    if (!isContentCompact && pathname.endsWith('settings'))
-      throw redirect({ to: '/settings/language-region', replace: true })
-  },
   component: RouteComponent,
 })
 
@@ -48,13 +38,7 @@ function RouteComponent() {
     }
   }, [isContentCompact, wasAutoRedirected, pathname, navigate])
 
-  const handleTabsListClick = () => {
-    if (wasAutoRedirected) {
-      setWasAutoRedirected(false)
-    }
-  }
-
-  const getSettingsContent = () => {
+  const renderSettingsContent = () => {
     if (isContentCompact === undefined) {
       return null
     } else if (isContentCompact) {
@@ -62,14 +46,7 @@ function RouteComponent() {
     } else {
       return (
         <div className="grid w-full grid-cols-[200px_minmax(0,1fr)] gap-12">
-          <div>
-            <Link to="/settings/language-region" onClick={handleTabsListClick}>
-              <ListItem>Sprache & Region</ListItem>
-            </Link>
-            <Link to="/settings/appearance" onClick={handleTabsListClick}>
-              <ListItem>Erscheinung</ListItem>
-            </Link>
-          </div>
+          <SettingsMenu />
           <div>
             <Outlet />
           </div>
@@ -78,5 +55,5 @@ function RouteComponent() {
     }
   }
 
-  return <PageCard title="Einstellungen">{getSettingsContent()}</PageCard>
+  return <PageCard title="Einstellungen">{renderSettingsContent()}</PageCard>
 }

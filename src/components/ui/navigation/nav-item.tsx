@@ -1,7 +1,7 @@
 import type { LinkProps } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router'
+import { SheetClose } from '@/components/ui/overlays/sheet'
 import { cn } from '@/lib/utils'
-import { SheetClose } from '../overlays/sheet'
 
 type NavItemProps = Partial<LinkProps> & {
   icon: React.ReactNode
