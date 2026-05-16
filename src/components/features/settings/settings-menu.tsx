@@ -1,28 +1,34 @@
-import { Link } from '@tanstack/react-router'
+import { Link, linkOptions } from '@tanstack/react-router'
 import { useState } from 'react'
 import { ListItem } from '@/components/ui/display/list-item'
 import { cn } from '@/lib/utils'
 
 export function SettingsMenu() {
+  const menuItems = linkOptions([
+    {
+      to: '/settings/language-region',
+      title: 'Sprache & Region',
+    },
+    {
+      to: '/settings/appearance',
+      title: 'Erscheinung',
+    },
+  ])
+
   return (
     <div className="flex flex-col gap-2">
-      <Link
-        to={'/settings/language-region'}
-        activeProps={{
-          className: 'bg-primary text-primary-foreground shadow-sm rounded-xl',
-        }}
-      >
-        <MenuItem title="Sprache & Region" />
-      </Link>
-
-      <Link
-        to={'/settings/appearance'}
-        activeProps={{
-          className: 'bg-primary text-primary-foreground shadow-sm rounded-xl',
-        }}
-      >
-        <MenuItem title="Erscheinung" />
-      </Link>
+      {menuItems.map((x) => (
+        <Link
+          to={x.to}
+          key={x.to}
+          activeProps={{
+            className:
+              'bg-primary text-primary-foreground shadow-sm rounded-xl',
+          }}
+        >
+          <MenuItem title={x.title}></MenuItem>
+        </Link>
+      ))}
     </div>
   )
 }
