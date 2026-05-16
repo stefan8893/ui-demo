@@ -24,10 +24,10 @@ export function Layout() {
   useResizeObserver({
     ref: mainContentContainer,
     onResize: ({ width }) => {
-      const shouldBeCompact = width !== undefined && width < 700
+      const isContentCompact = width !== undefined && width < 448
 
       window.requestAnimationFrame(() => {
-        setIsCompact(shouldBeCompact)
+        setIsCompact(isContentCompact)
       })
     },
   })

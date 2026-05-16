@@ -1,11 +1,11 @@
 import { create } from 'zustand'
 
 type LayoutState = {
-  isCompact: boolean
+  isCompact?: boolean
   setIsCompact: (compact: boolean) => void
 }
 
 export const useLayoutStore = create<LayoutState>((set) => ({
-  isCompact: true,
+  isCompact: undefined,
   setIsCompact: (compact) => set({ isCompact: compact }),
 }))
