@@ -3,7 +3,11 @@ import { useState } from 'react'
 import { ListItem } from '@/components/ui/display/list-item'
 import { cn } from '@/lib/utils'
 
-export function SettingsMenu() {
+type SettingMenuProps = {
+  onItemClick?: () => void
+}
+
+export function SettingsMenu({ onItemClick }: SettingMenuProps) {
   const menuItems = linkOptions([
     {
       to: '/settings/language-region',
@@ -25,6 +29,7 @@ export function SettingsMenu() {
             className:
               'bg-primary text-primary-foreground shadow-sm rounded-xl',
           }}
+          onClick={onItemClick}
         >
           <MenuItem title={x.title}></MenuItem>
         </Link>

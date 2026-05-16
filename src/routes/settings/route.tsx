@@ -38,6 +38,12 @@ function RouteComponent() {
     }
   }, [isContentCompact, wasAutoRedirected, pathname, navigate])
 
+  const handleMenuItemClick = () => {
+    if (wasAutoRedirected) {
+      setWasAutoRedirected(false)
+    }
+  }
+
   const renderSettingsContent = () => {
     if (isContentCompact === undefined) {
       return null
@@ -46,7 +52,7 @@ function RouteComponent() {
     } else {
       return (
         <div className="grid grid-cols-[200px_minmax(0,1fr)] gap-12">
-          <SettingsMenu />
+          <SettingsMenu onItemClick={handleMenuItemClick} />
           <div>
             <Outlet />
           </div>
