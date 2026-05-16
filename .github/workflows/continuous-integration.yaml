@@ -24,6 +24,9 @@ jobs:
       - name: Install packages
         run: npm ci --ignore-scripts
 
+      - name: Audit packages
+        run: npm audit --audit-level=high
+
       - name: Lint
         run: npm run lint:ci
 
