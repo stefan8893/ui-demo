@@ -18,7 +18,7 @@ function RouteComponent() {
   const navigate = useNavigate()
 
   const [wasAutoRedirected, setWasAutoRedirected] = useState(false)
-  const isContentCompact = useLayoutStore((state) => state.isContentCompact)
+  const isContentCompact = useLayoutStore((x) => x.isContentCompact)
   const pathname = location.pathname.replace(/\/$/, '') ?? '/'
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function RouteComponent() {
       return <Outlet />
     } else {
       return (
-        <div className="grid w-full grid-cols-[200px_minmax(0,1fr)] gap-12">
+        <div className="grid grid-cols-[200px_minmax(0,1fr)] gap-12">
           <SettingsMenu />
           <div>
             <Outlet />

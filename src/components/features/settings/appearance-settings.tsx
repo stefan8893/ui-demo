@@ -1,6 +1,7 @@
 import { Check, Leaf, Monitor, Moon, Pipette, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useLocalStorage } from 'usehooks-ts'
+import { SettingsCardHeader } from '@/components/common/settings/settings-card-header'
 import { Card, CardContent } from '@/components/ui/display/card'
 import { Section } from '@/components/ui/display/section'
 import { Separator } from '@/components/ui/separator'
@@ -9,6 +10,7 @@ import { cn } from '@/lib/utils'
 export function AppearanceSettings() {
   return (
     <Card>
+      <SettingsCardHeader title="Erscheinung" />
       <CardContent>
         <Section
           title="Helligkeit"
