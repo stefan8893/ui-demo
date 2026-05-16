@@ -2,6 +2,7 @@ import {
   createFileRoute,
   Link,
   Outlet,
+  redirect,
   useNavigate,
   useRouterState,
 } from '@tanstack/react-router'
@@ -11,6 +12,14 @@ import { PageCard } from '@/components/ui/display/page-card'
 import { useLayoutStore } from '@/stores/useLayoutStore'
 
 export const Route = createFileRoute('/settings')({
+  beforeLoad: (ctx) => {
+    const isContentCompact = useLayoutStore.getState().isContentCompact
+    const pathname = ctx.location.pathname.replace(/\/$/, '')
+
+    if (isContentCompact === undefined) return
+    if (!isContentCompact && pathname.endsWith('settings'))
+      throw redirect({ to: '/settings/language-region', replace: true })
+  },
   component: RouteComponent,
 })
 
@@ -20,7 +29,7 @@ function RouteComponent() {
 
   const [wasAutoRedirected, setWasAutoRedirected] = useState(false)
   const isContentCompact = useLayoutStore((state) => state.isContentCompact)
-  const pathname = location.pathname.replace(/\/$/, '') || '/'
+  const pathname = location.pathname.replace(/\/$/, '') ?? '/'
 
   useEffect(() => {
     if (!isContentCompact && pathname === '/settings') {
