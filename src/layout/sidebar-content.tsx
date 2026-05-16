@@ -11,7 +11,12 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
       </div>
 
       <nav className="flex flex-col gap-1 px-2 pb-6">
-        <NavItem to="/" label="Home" icon={<Home />} isMobile={isMobile} />
+        <NavItem
+          to="/"
+          label="Home"
+          icon={<Home />}
+          closeMobileSidebarOnClick={isMobile}
+        />
       </nav>
 
       <div className="mt-auto border-border border-t p-4">
@@ -19,7 +24,7 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
           to="/settings"
           label="Einstellungen"
           icon={<Settings />}
-          isMobile={isMobile}
+          closeMobileSidebarOnClick={isMobile}
         />
       </div>
     </div>

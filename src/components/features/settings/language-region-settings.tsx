@@ -1,4 +1,4 @@
-import { SettingsCardHeader } from '@/components/common/settings/settings-card-header'
+import { SettingsCardHeader } from '@/components/features/settings/settings-card-header'
 import { Card, CardContent } from '@/components/ui/display/card'
 
 export function LanguageRegionSettings() {

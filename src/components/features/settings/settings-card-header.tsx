@@ -11,7 +11,7 @@ export function SettingsCardHeader({ title }: { title: string }) {
       {isContentCompact && (
         <CardHeader>
           <CardTitle className="flex flex-row items-center gap-2">
-            <IconButton icon={ChevronLeftCircle} size="lg" to="/settings" />
+            <IconButton icon={ChevronLeftCircle} size="xl" to="/settings" />
             <span>{title}</span>
           </CardTitle>
         </CardHeader>

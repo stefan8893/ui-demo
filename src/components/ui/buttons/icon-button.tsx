@@ -13,6 +13,7 @@ const iconVariants = cva('', {
       sm: 'size-4',
       default: 'size-5',
       lg: 'size-6',
+      xl: 'size-8',
     },
   },
   defaultVariants: {
@@ -24,6 +25,7 @@ const buttonSizeMap = {
   sm: 'icon-sm',
   default: 'icon',
   lg: 'icon-lg',
+  xl: 'icon-xl',
 } as const
 
 type IconButtonProps = Omit<ButtonProps, 'size'> &

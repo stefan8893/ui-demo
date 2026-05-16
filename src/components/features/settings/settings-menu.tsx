@@ -1,56 +1,27 @@
-import { Link, linkOptions } from '@tanstack/react-router'
-import { useState } from 'react'
-import { ListItem } from '@/components/ui/display/list-item'
-import { cn } from '@/lib/utils'
+import { linkOptions } from '@tanstack/react-router'
+import { NavItem } from '@/components/ui/navigation/nav-item'
 
 type SettingMenuProps = {
-  onItemClick?: () => void
+  onClick?: () => void
 }
 
-export function SettingsMenu({ onItemClick }: SettingMenuProps) {
+export function SettingsMenu({ onClick }: SettingMenuProps) {
   const menuItems = linkOptions([
     {
       to: '/settings/language-region',
-      title: 'Sprache & Region',
+      label: 'Sprache & Region',
     },
     {
       to: '/settings/appearance',
-      title: 'Erscheinung',
+      label: 'Erscheinung',
     },
   ])
 
   return (
     <div className="flex flex-col gap-2">
       {menuItems.map((x) => (
-        <Link
-          to={x.to}
-          key={x.to}
-          activeProps={{
-            className:
-              'bg-primary text-primary-foreground shadow-sm rounded-xl',
-          }}
-          onClick={onItemClick}
-        >
-          <MenuItem title={x.title}></MenuItem>
-        </Link>
+        <NavItem to={x.to} key={x.to} label={x.label} onClick={onClick} />
       ))}
     </div>
-  )
-}
-
-function MenuItem({ title }: { title: string }) {
-  const [isAnimating, setIsAnimating] = useState(false)
-
-  return (
-    <ListItem
-      onClick={() => setIsAnimating(true)}
-      onAnimationEnd={() => setIsAnimating(false)}
-      className={cn(
-        'flex h-12 flex-row items-center px-3 py-2 font-medium text-sm',
-        isAnimating && 'animate-flash-hard',
-      )}
-    >
-      {title}
-    </ListItem>
   )
 }

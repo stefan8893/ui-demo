@@ -52,7 +52,7 @@ function RouteComponent() {
     } else {
       return (
         <div className="grid grid-cols-[200px_minmax(0,1fr)] gap-12">
-          <SettingsMenu onItemClick={handleMenuItemClick} />
+          <SettingsMenu onClick={handleMenuItemClick} />
           <div>
             <Outlet />
           </div>
