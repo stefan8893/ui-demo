@@ -16,24 +16,24 @@ export function ThemeToggle({ className }: ComponentPropsWithoutRef<'div'>) {
     <div className={className}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon-lg" className="cursor-pointer">
+          <Button variant="ghost" size="icon" className="cursor-pointer">
             <Sun className="size-6 dark:hidden" />
-            <Moon className="hidden size-6 dark:block" />
+            <Moon className="hidden size-5 dark:block" />
             <span className="sr-only">Toggle Theme</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           {[
-            { label: 'Hell', icon: <Sun />, value: 'light' },
-            { label: 'Dunkel', icon: <Moon />, value: 'dark' },
-            { label: 'System', icon: <Monitor />, value: 'system' },
+            { value: 'light', label: 'Hell', icon: Sun },
+            { value: 'dark', label: 'Dunkel', icon: Moon },
+            { value: 'system', label: 'System', icon: Monitor },
           ].map((x) => (
             <DropdownMenuItem
-              key={x.label}
+              key={x.value}
               onClick={() => setTheme(x.value)}
               className="cursor-pointer"
             >
-              <span className="mr-2">{x.icon}</span>
+              <x.icon />
               <span>{x.label}</span>
             </DropdownMenuItem>
           ))}

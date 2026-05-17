@@ -34,9 +34,9 @@ export function Header({
         onClick={openMobileSidebar}
       />
 
-      <div className="ml-auto flex flex-row flex-nowrap items-center gap-3">
-        <IconButton icon={Home} to="/" size="lg" />
-        <IconButton icon={Settings} to="/settings" size="lg" />
+      <div className="ml-auto flex flex-row flex-nowrap items-center gap-2.5">
+        <IconButton icon={Home} to="/" />
+        <IconButton icon={Settings} to="/settings" />
         <GithubLink />
         <ThemeToggle />
       </div>

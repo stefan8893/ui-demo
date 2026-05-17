@@ -37,23 +37,23 @@ function ThemeSettings() {
   return (
     <div className="grid grid-cols-3 gap-3">
       {[
-        { id: 'light', label: 'Hell', icon: Sun },
-        { id: 'dark', label: 'Dunkel', icon: Moon },
-        { id: 'system', label: 'System', icon: Monitor },
+        { value: 'light', label: 'Hell', icon: Sun },
+        { value: 'dark', label: 'Dunkel', icon: Moon },
+        { value: 'system', label: 'System', icon: Monitor },
       ].map((item) => (
         <button
           type="button"
-          key={item.id}
-          onClick={() => setTheme(item.id)}
+          key={item.value}
+          onClick={() => setTheme(item.value)}
           className={cn(
             'flex flex-col items-center gap-2 rounded-lg border-2 p-3 hover:bg-accent',
-            theme === item.id
+            theme === item.value
               ? 'border-primary'
               : 'border-transparent bg-secondary/50',
           )}
         >
           <item.icon
-            className={`size-5 ${theme === item.id ? 'text-primary' : 'text-muted-foreground'}`}
+            className={`size-5 ${theme === item.value ? 'text-primary' : 'text-muted-foreground'}`}
           />
           <span className="font-medium text-[10px] uppercase tracking-wider">
             {item.label}
