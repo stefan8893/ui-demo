@@ -33,6 +33,7 @@ export function SettingsMenu({
           label={x.label}
           size={size}
           onClick={onClick}
+          variant="tabs"
           appendIcon={showAppendIconGoTo && <ChevronRight size={20} />}
         />
       ))}

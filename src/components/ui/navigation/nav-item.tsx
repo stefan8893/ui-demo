@@ -13,16 +13,20 @@ const iconSizeMap = {
 const navItemVariants = cva(
   cn(
     'flex w-full cursor-pointer items-center gap-3 rounded-lg font-medium text-sm transition-all',
-    'text-muted-foreground hover:bg-accent',
   ),
   {
     variants: {
+      variant: {
+        sidebar: 'text-muted-foreground hover:bg-accent',
+        tabs: 'text-foreground hover:bg-muted',
+      },
       size: {
         default: 'px-3 py-2 text-sm gap-3',
         lg: 'px-4 py-2.5 text-base gap-3.5',
       },
     },
     defaultVariants: {
+      variant: 'sidebar',
       size: 'default',
     },
   },
@@ -44,16 +48,21 @@ export function NavItem({
   appendIcon,
   to,
   size = 'default',
+  variant = 'sidebar',
   closeMobileSidebarOnClick,
   onClick,
 }: NavItemProps) {
-  const iconSize = iconSizeMap[size ?? 'default']
+  const activeSize = size ?? 'default'
+  const activeVariant = variant ?? 'sidebar'
+  const iconSize = iconSizeMap[activeSize]
   const content = (
     <Link
       to={to}
       preload="intent"
       onClick={onClick}
-      className={cn(navItemVariants({ size }))}
+      className={cn(
+        navItemVariants({ size: activeSize, variant: activeVariant }),
+      )}
       activeProps={{
         className:
           'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90',
