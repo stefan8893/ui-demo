@@ -17,7 +17,7 @@ export function ThemeToggle({ className }: ComponentPropsWithoutRef<'div'>) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className="cursor-pointer">
-            <Sun className="size-6 dark:hidden" />
+            <Sun className="size-5 dark:hidden" />
             <Moon className="hidden size-5 dark:block" />
             <span className="sr-only">Toggle Theme</span>
           </Button>
