@@ -25,7 +25,7 @@ export function NavItem({
       onClick={onClick}
       className={cn(
         'flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 font-medium text-sm transition-all',
-        'text-muted-foreground hover:bg-accent hover:text-foreground',
+        'text-muted-foreground hover:bg-accent',
       )}
       activeProps={{
         className:
