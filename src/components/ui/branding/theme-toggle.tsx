@@ -8,13 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/overlays/dropdown-menu'
-import { cn } from '@/lib/utils'
 
 export function ThemeToggle({ className }: ComponentPropsWithoutRef<'div'>) {
   const { setTheme } = useTheme()
 
   return (
-    <div className={cn('', className)}>
+    <div className={className}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon-lg" className="cursor-pointer">
@@ -24,27 +23,20 @@ export function ThemeToggle({ className }: ComponentPropsWithoutRef<'div'>) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem
-            onClick={() => setTheme('light')}
-            className="cursor-pointer"
-          >
-            <Sun className="mr-2 h-4 w-4" />
-            <span>Hell</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => setTheme('dark')}
-            className="cursor-pointer"
-          >
-            <Moon className="mr-2 h-4 w-4" />
-            <span>Dunkel</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => setTheme('system')}
-            className="cursor-pointer"
-          >
-            <Monitor className="mr-2 h-4 w-4" />
-            <span>System</span>
-          </DropdownMenuItem>
+          {[
+            { label: 'Hell', icon: <Sun />, value: 'light' },
+            { label: 'Dunkel', icon: <Moon />, value: 'dark' },
+            { label: 'System', icon: <Monitor />, value: 'system' },
+          ].map((x) => (
+            <DropdownMenuItem
+              key={x.label}
+              onClick={() => setTheme(x.value)}
+              className="cursor-pointer"
+            >
+              <span className="mr-2">{x.icon}</span>
+              <span>{x.label}</span>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
