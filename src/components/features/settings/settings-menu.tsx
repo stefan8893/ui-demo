@@ -1,5 +1,5 @@
 import { linkOptions } from '@tanstack/react-router'
-import { NavItem } from '@/components/ui/navigation/nav-item'
+import { TabItem } from '@/components/ui/navigation/tab-item'
 
 type SettingMenuProps = {
   onClick?: () => void
@@ -20,7 +20,7 @@ export function SettingsMenu({ onClick }: SettingMenuProps) {
   return (
     <div className="flex flex-col gap-2">
       {menuItems.map((x) => (
-        <NavItem to={x.to} key={x.to} label={x.label} onClick={onClick} />
+        <TabItem to={x.to} key={x.to} label={x.label} onClick={onClick} />
       ))}
     </div>
   )
