@@ -10,5 +10,5 @@ export const Route = createFileRoute('/settings/')({
     if (isContentCompact === false)
       throw redirect({ to: '/settings/language-region', replace: true })
   },
-  component: () => <SettingsMenu showAppendIconGoTo />,
+  component: () => <SettingsMenu showAppendIconGoTo size="lg" />,
 })

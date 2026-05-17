@@ -14,7 +14,7 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
         <NavItem
           to="/"
           label="Home"
-          icon={<Home />}
+          prependIcon={<Home />}
           closeMobileSidebarOnClick={isMobile}
         />
       </nav>
@@ -23,7 +23,7 @@ export function SidebarContent({ isMobile }: { isMobile?: boolean }) {
         <NavItem
           to="/settings"
           label="Einstellungen"
-          icon={<Settings />}
+          prependIcon={<Settings />}
           closeMobileSidebarOnClick={isMobile}
         />
       </div>
