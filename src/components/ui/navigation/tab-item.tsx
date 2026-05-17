@@ -1,17 +1,20 @@
 import type { LinkProps } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router'
+import type { ReactNode } from 'react'
 import { SheetClose } from '@/components/ui/overlays/sheet'
 import { cn } from '@/lib/utils'
 
-type TabItemProps = Partial<LinkProps> & {
+type TabItemProps = {
   label: string
+  appendIcon?: ReactNode
   to: string
   closeMobileSidebarOnClick?: boolean
   onClick?: () => void
-}
+} & Partial<LinkProps>
 
 export function TabItem({
   label,
+  appendIcon,
   to,
   closeMobileSidebarOnClick,
   onClick,
@@ -22,7 +25,7 @@ export function TabItem({
       preload="intent"
       onClick={onClick}
       className={cn(
-        'flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 font-medium text-sm transition-all',
+        'flex w-full cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-4 font-medium text-base transition-all',
         'hover:bg-accent',
       )}
       activeProps={{
@@ -31,6 +34,7 @@ export function TabItem({
       }}
     >
       {label}
+      {appendIcon && <span>{appendIcon}</span>}
     </Link>
   )
 

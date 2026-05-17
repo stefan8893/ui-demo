@@ -1,15 +1,16 @@
 import type { LinkProps } from '@tanstack/react-router'
 import { Link } from '@tanstack/react-router'
+import type { ReactNode } from 'react'
 import { SheetClose } from '@/components/ui/overlays/sheet'
 import { cn } from '@/lib/utils'
 
-type NavItemProps = Partial<LinkProps> & {
-  icon?: React.ReactNode
+type NavItemProps = {
+  icon?: ReactNode
   label: string
   to: string
   closeMobileSidebarOnClick?: boolean
   onClick?: () => void
-}
+} & Partial<LinkProps>
 
 export function NavItem({
   icon,
