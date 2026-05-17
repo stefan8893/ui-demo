@@ -2,9 +2,5 @@ import { createFileRoute } from '@tanstack/react-router'
 import { AppearanceSettings } from '@/components/features/settings/appearance-settings'
 
 export const Route = createFileRoute('/settings/appearance')({
-  component: AppearanceSettingsTab,
+  component: () => <AppearanceSettings />,
 })
-
-function AppearanceSettingsTab() {
-  return <AppearanceSettings />
-}
