@@ -1,10 +1,10 @@
-import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/lib/utils'
 
 type SectionProps = {
   title?: string
   description?: string
-} & PropsWithChildren<ComponentPropsWithoutRef<'section'>>
+} & ComponentPropsWithoutRef<'section'>
 
 export function Section({
   title,

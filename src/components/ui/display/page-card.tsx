@@ -1,10 +1,10 @@
-import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/lib/utils'
 
-type SectionCardProps = {
+type PageCardProps = {
   title?: string
   description?: string
-} & PropsWithChildren<ComponentPropsWithoutRef<'section'>>
+} & ComponentPropsWithoutRef<'div'>
 
 export function PageCard({
   children,
@@ -12,7 +12,7 @@ export function PageCard({
   description,
   className,
   ...props
-}: SectionCardProps) {
+}: PageCardProps) {
   return (
     <div
       className={cn(
