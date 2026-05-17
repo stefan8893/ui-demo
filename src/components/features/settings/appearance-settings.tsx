@@ -4,7 +4,7 @@ import { useLocalStorage } from 'usehooks-ts'
 import { SettingsCardHeader } from '@/components/features/settings/settings-card-header'
 import { Card, CardContent } from '@/components/ui/display/card'
 import { Section } from '@/components/ui/display/section'
-import { Separator } from '@/components/ui/separator'
+import { Separator } from '@/components/ui/display/separator'
 import { cn } from '@/lib/utils'
 
 export function AppearanceSettings() {
