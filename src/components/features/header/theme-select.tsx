@@ -8,10 +8,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/overlays/dropdown-menu'
+import { cn } from '@/lib/utils'
 
 export function ThemeSelect({ className }: ComponentPropsWithoutRef<'div'>) {
-  const { setTheme } = useTheme()
-
+  const { setTheme, theme } = useTheme()
   return (
     <div className={className}>
       <DropdownMenu>
@@ -19,18 +19,32 @@ export function ThemeSelect({ className }: ComponentPropsWithoutRef<'div'>) {
           <Button variant="ghost" size="icon" className="cursor-pointer">
             <Sun className="size-5 dark:hidden" />
             <Moon className="hidden size-5 dark:block" />
-            <span className="sr-only">Toggle Theme</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           {[
-            { value: 'light', label: 'Hell', icon: Sun },
-            { value: 'dark', label: 'Dunkel', icon: Moon },
-            { value: 'system', label: 'System', icon: Monitor },
+            {
+              value: 'light',
+              label: 'Hell',
+              icon: Sun,
+              selected: theme === 'light',
+            },
+            {
+              value: 'dark',
+              label: 'Dunkel',
+              icon: Moon,
+              selected: theme === 'dark',
+            },
+            {
+              value: 'system',
+              label: 'System',
+              icon: Monitor,
+              selected: theme === 'system',
+            },
           ].map((x) => (
             <DropdownMenuItem key={x.value} onClick={() => setTheme(x.value)}>
-              <x.icon />
-              <span>{x.label}</span>
+              <x.icon className={cn(x.selected && 'stroke-[3px]')} />
+              <span className={cn(x.selected && 'font-bold')}>{x.label}</span>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
