@@ -5,8 +5,9 @@ import {
   PanelLeftOpen,
   Settings,
 } from 'lucide-react'
+import { LanguageSelect } from '@/components/features/header/language-select'
+import { ThemeSelect } from '@/components/features/header/theme-select'
 import { GithubLink } from '@/components/ui/branding/github-link'
-import { ThemeToggle } from '@/components/ui/branding/theme-toggle'
 import { IconButton } from '@/components/ui/buttons/icon-button'
 
 type HeaderProps = {
@@ -38,7 +39,8 @@ export function Header({
         <IconButton icon={Home} to="/" />
         <IconButton icon={Settings} to="/settings" />
         <GithubLink />
-        <ThemeToggle />
+        <LanguageSelect />
+        <ThemeSelect />
       </div>
     </div>
   )

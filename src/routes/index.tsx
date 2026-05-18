@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import { ButtonsGuide } from '@/components/style-guide/buttons-guide'
 import { ColorsGuide } from '@/components/style-guide/colors-guide'
 import { DefaultCardGuide } from '@/components/style-guide/default-card-guide'
@@ -10,11 +11,10 @@ import { PageCard } from '@/components/ui/display/page-card'
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
+  const { t } = useTranslation('common')
+
   return (
-    <PageCard
-      title="Design System"
-      description="Struktur und Leitlinien für eine einheitliche User Experience"
-    >
+    <PageCard title={t('homeTitle')} description={t('homeDescription')}>
       <div className="flex flex-col gap-y-8">
         <ButtonsGuide />
         <ColorsGuide />

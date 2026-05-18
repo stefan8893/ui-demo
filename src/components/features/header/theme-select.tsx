@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/overlays/dropdown-menu'
 
-export function ThemeToggle({ className }: ComponentPropsWithoutRef<'div'>) {
+export function ThemeSelect({ className }: ComponentPropsWithoutRef<'div'>) {
   const { setTheme } = useTheme()
 
   return (
@@ -28,11 +28,7 @@ export function ThemeToggle({ className }: ComponentPropsWithoutRef<'div'>) {
             { value: 'dark', label: 'Dunkel', icon: Moon },
             { value: 'system', label: 'System', icon: Monitor },
           ].map((x) => (
-            <DropdownMenuItem
-              key={x.value}
-              onClick={() => setTheme(x.value)}
-              className="cursor-pointer"
-            >
+            <DropdownMenuItem key={x.value} onClick={() => setTheme(x.value)}>
               <x.icon />
               <span>{x.label}</span>
             </DropdownMenuItem>

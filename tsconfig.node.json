@@ -6,6 +6,8 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "paths": {
       "#/*": ["./src/*"],
       "@/*": ["./src/*"]
