@@ -1,19 +1,21 @@
-import { Button } from '../ui/buttons/button'
+import { useTranslation } from 'react-i18next'
+import { Button } from '@/components/ui/buttons/button'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../ui/display/card'
+} from '@/components/ui/display/card'
 
 export function ButtonsGuide() {
+  const { t } = useTranslation('style-guide')
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Buttons & Interaktion</CardTitle>
+        <CardTitle>{t('buttonsAndInteractions')}</CardTitle>
         <CardDescription>
-          Definition der visuellen Hierarchie für Benutzeraktionen.
+          {t('buttonsAndInteractionsDescription')}
         </CardDescription>
       </CardHeader>
       <CardContent>

@@ -11,10 +11,13 @@ import { PageCard } from '@/components/ui/display/page-card'
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation('style-guide')
 
   return (
-    <PageCard title={t('homeTitle')} description={t('homeDescription')}>
+    <PageCard
+      title={t('designSystem')}
+      description={t('designSystemDescription')}
+    >
       <div className="flex flex-col gap-y-8">
         <ButtonsGuide />
         <ColorsGuide />

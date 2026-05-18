@@ -7,23 +7,18 @@ i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
-
   .init({
     fallbackLng: 'en',
     load: 'languageOnly',
     debug: import.meta.env.DEV,
-
-    ns: ['common'],
+    ns: ['common', 'style-guide'],
     defaultNS: 'common',
-
     detection: {
       lookupLocalStorage: 'language',
     },
-
     backend: {
       loadPath: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/locales/{{lng}}/{{ns}}.json`,
     },
-
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
