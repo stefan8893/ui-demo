@@ -41,10 +41,15 @@ export function ThemeSelect({ className }: ComponentPropsWithoutRef<'div'>) {
               icon: Monitor,
               selected: theme === 'system',
             },
-          ].map((x) => (
-            <DropdownMenuItem key={x.value} onClick={() => setTheme(x.value)}>
-              <x.icon className={cn(x.selected && 'stroke-[3px]')} />
-              <span className={cn(x.selected && 'font-bold')}>{x.label}</span>
+          ].map((item) => (
+            <DropdownMenuItem
+              key={item.value}
+              onClick={() => setTheme(item.value)}
+            >
+              <item.icon className={cn(item.selected && 'stroke-bold')} />
+              <span className={cn(item.selected && 'font-semibold')}>
+                {item.label}
+              </span>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>

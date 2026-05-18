@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/overlays/dropdown-menu'
+import { cn } from '@/lib/utils'
 
 export function LanguageSelect({ className }: ComponentPropsWithoutRef<'div'>) {
   const { i18n } = useTranslation()
@@ -39,7 +40,9 @@ export function LanguageSelect({ className }: ComponentPropsWithoutRef<'div'>) {
               key={x.value}
               onClick={() => changeLanguage(x.value)}
             >
-              <span className={x.selected ? 'font-bold' : ''}>{x.label}</span>
+              <span className={cn(x.selected && 'font-semibold')}>
+                {x.label}
+              </span>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
