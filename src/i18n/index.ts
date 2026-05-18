@@ -20,6 +20,10 @@ i18n
       lookupLocalStorage: 'language',
     },
 
+    backend: {
+      loadPath: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/locales/{{lng}}/{{ns}}.json`,
+    },
+
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
