@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/display/card'
 import { ColorBox } from './color-box'
 
 export function ColorsGuide() {
+  const { t } = useTranslation('style-guide')
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Farben</CardTitle>
+        <CardTitle>{t('color', { count: 0 })}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">

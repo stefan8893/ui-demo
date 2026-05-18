@@ -1,6 +1,17 @@
 {
   "designSystem": "Design System",
-  "designSystemDescription": "Structure and Guidelines for a Consistent User Experience",
-  "buttonsAndInteractions": "Buttons & Interaction",
-  "buttonsAndInteractionsDescription": "Defining the visual hierarchy for user actions."
+  "designSystemDescription": "Structure and Guidelines for a consistent user experience",
+  "buttonsAndInteractions": {
+    "title": "Buttons & Interaction",
+    "description": "Defining the visual hierarchy for user actions.",
+    "mainAction": "Central interaction",
+    "mainActionExample": "Save/Ok/Submit",
+    "secondaryAction": "Secondary Action",
+    "secondaryActionExample": "Edit",
+    "outlineAction": "Go Back",
+    "outlineActionExample": "Cancel/Close/Exit",
+    "destructiveAction": "Danger Zone",
+    "destructiveActionExample": "Delete/Cancel"
+  },
+  "color_other": "Colors"
 }

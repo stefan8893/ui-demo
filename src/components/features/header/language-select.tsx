@@ -23,7 +23,7 @@ export function LanguageSelect({ className }: ComponentPropsWithoutRef<'div'>) {
         <DropdownMenuTrigger asChild>
           <IconButton icon={Languages} />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="center" className="min-w-20">
+        <DropdownMenuContent align="center">
           {[
             {
               value: 'de',

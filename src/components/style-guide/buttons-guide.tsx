@@ -13,9 +13,9 @@ export function ButtonsGuide() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{t('buttonsAndInteractions')}</CardTitle>
+        <CardTitle>{t('buttonsAndInteractions.title')}</CardTitle>
         <CardDescription>
-          {t('buttonsAndInteractionsDescription')}
+          {t('buttonsAndInteractions.description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -27,11 +27,13 @@ export function ButtonsGuide() {
                 Primary
               </p>
               <p className="text-muted-foreground text-xs">
-                Zentrale Interaktion
+                {t('buttonsAndInteractions.mainActionExample')}
               </p>
             </div>
             <div className="flex flex-1 items-end">
-              <Button className="w-full">Hauptaktion</Button>
+              <Button className="w-full">
+                {t('buttonsAndInteractions.mainAction')}
+              </Button>
             </div>
           </div>
 
@@ -41,11 +43,13 @@ export function ButtonsGuide() {
               <p className="font-bold text-[10px] text-muted-foreground uppercase tracking-wider">
                 Secondary
               </p>
-              <p className="text-muted-foreground text-xs">Bearbeiten</p>
+              <p className="text-muted-foreground text-xs">
+                {t('buttonsAndInteractions.secondaryActionExample')}
+              </p>
             </div>
             <div className="flex flex-1 items-end">
               <Button variant="secondary" className="w-full">
-                Nebenaktion
+                {t('buttonsAndInteractions.secondaryAction')}
               </Button>
             </div>
           </div>
@@ -57,12 +61,12 @@ export function ButtonsGuide() {
                 Outline
               </p>
               <p className="text-muted-foreground text-xs">
-                Abbrechen/Schließen/Beenden
+                {t('buttonsAndInteractions.outlineActionExample')}
               </p>
             </div>
             <div className="flex flex-1 items-end">
               <Button variant="outline" className="w-full">
-                Rückzug
+                {t('buttonsAndInteractions.outlineAction')}
               </Button>
             </div>
           </div>
@@ -73,11 +77,13 @@ export function ButtonsGuide() {
               <p className="font-bold text-[10px] text-muted-foreground uppercase tracking-wider">
                 Destructive
               </p>
-              <p className="text-muted-foreground text-xs">Löschen/Abbrechen</p>
+              <p className="text-muted-foreground text-xs">
+                {t('buttonsAndInteractions.destructiveActionExample')}
+              </p>
             </div>
             <div className="flex flex-1 items-end">
               <Button variant="destructive" className="w-full">
-                Gefahrenzone
+                {t('buttonsAndInteractions.destructiveAction')}
               </Button>
             </div>
           </div>
