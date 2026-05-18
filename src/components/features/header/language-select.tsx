@@ -22,16 +22,24 @@ export function LanguageSelect({ className }: ComponentPropsWithoutRef<'div'>) {
         <DropdownMenuTrigger asChild>
           <IconButton icon={Languages} />
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent align="center" className="min-w-20">
           {[
-            { value: 'de', label: 'Deutsch' },
-            { value: 'en', label: 'English' },
+            {
+              value: 'de',
+              label: 'Deutsch',
+              selected: i18n.resolvedLanguage === 'de',
+            },
+            {
+              value: 'en',
+              label: 'English',
+              selected: i18n.resolvedLanguage === 'en',
+            },
           ].map((x) => (
             <DropdownMenuItem
               key={x.value}
               onClick={() => changeLanguage(x.value)}
             >
-              {x.label}
+              <span className={x.selected ? 'font-bold' : ''}>{x.label}</span>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
