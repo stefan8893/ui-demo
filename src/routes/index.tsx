@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { ButtonsGuide } from '@/components/style-guide/buttons-guide'
-import { ColorsGuide } from '@/components/style-guide/ColorsGuide'
+import { ColorsGuide } from '@/components/style-guide/colors-guide'
 import { DefaultCardGuide } from '@/components/style-guide/default-card-guide'
 import { IconButtonsGuide } from '@/components/style-guide/icon-buttons-guide'
 import { ListGuide } from '@/components/style-guide/list-guide'
