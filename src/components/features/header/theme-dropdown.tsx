@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/overlays/dropdown-menu'
 import { cn } from '@/lib/utils'
 
-export function ThemeSelect({ className }: ComponentPropsWithoutRef<'div'>) {
+export function ThemeDropdown({ className }: ComponentPropsWithoutRef<'div'>) {
   const { setTheme, theme } = useTheme()
   return (
     <div className={className}>

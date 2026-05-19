@@ -5,8 +5,8 @@ import {
   PanelLeftOpen,
   Settings,
 } from 'lucide-react'
-import { LanguageSelect } from '@/components/features/header/language-select'
-import { ThemeSelect } from '@/components/features/header/theme-select'
+import { LanguageDropdown } from '@/components/features/header/language-dropndown'
+import { ThemeDropdown } from '@/components/features/header/theme-dropdown'
 import { GithubLink } from '@/components/ui/branding/github-link'
 import { IconButton } from '@/components/ui/buttons/icon-button'
 
@@ -39,8 +39,8 @@ export function Header({
         <IconButton icon={Home} to="/" />
         <IconButton icon={Settings} to="/settings" />
         <GithubLink />
-        <LanguageSelect />
-        <ThemeSelect />
+        <LanguageDropdown />
+        <ThemeDropdown />
       </div>
     </div>
   )

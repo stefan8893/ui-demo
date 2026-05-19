@@ -10,7 +10,9 @@ import {
 } from '@/components/ui/overlays/dropdown-menu'
 import { cn } from '@/lib/utils'
 
-export function LanguageSelect({ className }: ComponentPropsWithoutRef<'div'>) {
+export function LanguageDropdown({
+  className,
+}: ComponentPropsWithoutRef<'div'>) {
   const { i18n } = useTranslation()
 
   const changeLanguage = async (newLanguage: string) => {
