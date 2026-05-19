@@ -1,1 +1,6 @@
-{}
+{
+  "userList": "User List",
+  "settings": "Settings",
+  "logout": "Logout",
+  "feedback": "Feedback"
+}

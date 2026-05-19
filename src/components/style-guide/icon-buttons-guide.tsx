@@ -1,4 +1,5 @@
 import { Bell, Clapperboard, Search, Settings } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { IconButton } from '../ui/buttons/icon-button'
 import {
   Card,
@@ -9,13 +10,12 @@ import {
 } from '../ui/display/card'
 
 export function IconButtonsGuide() {
+  const { t } = useTranslation('style-guide')
   return (
     <Card size="sm" withBorder>
       <CardHeader>
         <CardTitle>Icon Buttons</CardTitle>
-        <CardDescription>
-          Einheitliche Größen für Icon-Interaktionen.
-        </CardDescription>
+        <CardDescription>{t('iconButtonsDescription')}</CardDescription>
       </CardHeader>
       <CardContent className="grid grid-cols-4 gap-4 py-6">
         <div className="flex flex-col items-center gap-3">

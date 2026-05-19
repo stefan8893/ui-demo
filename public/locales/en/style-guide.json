@@ -4,7 +4,7 @@
   "buttonsAndInteractions": {
     "title": "Buttons & Interaction",
     "description": "Defining the visual hierarchy for user actions.",
-    "mainAction": "Central interaction",
+    "mainAction": "Central Interaction",
     "mainActionExample": "Save/Ok/Submit",
     "secondaryAction": "Secondary Action",
     "secondaryActionExample": "Edit",
@@ -13,5 +13,10 @@
     "destructiveAction": "Danger Zone",
     "destructiveActionExample": "Delete/Cancel"
   },
-  "color_other": "Colors"
+  "color_other": "Colors",
+  "iconButtonsDescription": "Standard sizes for icon interactions.",
+  "listItems": {
+    "description": "Navigation & Interaction Feedback.",
+    "footer": "Use the <code>accent</code> state for hover and focus to visually confirm clickability."
+  }
 }

@@ -13,5 +13,10 @@
     "destructiveAction": "Gefahrenzone",
     "destructiveActionExample": "Löschen/Abbrechen"
   },
-  "color_other": "Farben"
+  "color_other": "Farben",
+  "iconButtonsDescription": "Einheitliche Größen für Icon-Interaktionen.",
+  "listItems": {
+    "description": "Navigation & Interaktions-Feedback.",
+    "footer": "Nutzt den <code>accent</code>-State für Hover und Focus, um die Klickbarkeit visuell zu bestätigen."
+  }
 }

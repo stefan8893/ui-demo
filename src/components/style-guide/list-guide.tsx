@@ -1,3 +1,4 @@
+import { Trans, useTranslation } from 'react-i18next'
 import {
   Card,
   CardContent,
@@ -11,23 +12,32 @@ import { ListItem } from '@/components/ui/display/list-item'
 import { Section } from '@/components/ui/display/section'
 
 export function ListGuide() {
+  const { t } = useTranslation(['common', 'style-guide'])
   return (
     <Card size="sm" withBorder>
       <CardHeader>
         <CardTitle>List Items</CardTitle>
-        <CardDescription>Navigation & Interaktions-Feedback.</CardDescription>
+        <CardDescription>
+          {t('style-guide:listItems.description')}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <Section>
-          {['Benutzerliste', 'Einstellungen', 'Abmelden'].map((item) => (
-            <ListItem key={item}>{item}</ListItem>
-          ))}
+          {[t('common:userList'), t('common:settings'), t('common:logout')].map(
+            (item) => (
+              <ListItem key={item}>{item}</ListItem>
+            ),
+          )}
         </Section>
       </CardContent>
       <CardFooter className="flex flex-row items-center justify-start">
-        <p className="text-[11px] text-muted-foreground leading-relaxed">
-          <b>Feedback:</b> Nutzt den <InlineCode>accent</InlineCode>
-          -State für Hover und Focus, um die Klickbarkeit visuell zu bestätigen.
+        <p className="text-muted-foreground text-xs leading-relaxed">
+          <span className="font-bold">{t('common:feedback')}:</span>{' '}
+          <Trans
+            i18nKey="listItems.footer"
+            ns="style-guide"
+            components={{ code: <InlineCode /> }}
+          />
         </p>
       </CardFooter>
     </Card>
