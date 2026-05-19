@@ -9,7 +9,7 @@ export function ColorBox({
 }) {
   return (
     <div className={`${bg} ${text} rounded-lg border p-4 shadow-sm`}>
-      <p className="font-bold text-sm">{label}</p>
+      <p className="font-semibold text-sm">{label}</p>
     </div>
   )
 }
