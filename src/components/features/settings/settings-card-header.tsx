@@ -15,7 +15,7 @@ export function SettingsCardHeader({ title }: { title: string }) {
               icon={ChevronLeftCircle}
               size="xl"
               to="/settings"
-              className="rounded-4xl"
+              className="rounded-full"
             />
             <span>{title}</span>
           </CardTitle>

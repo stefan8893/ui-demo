@@ -1,4 +1,3 @@
-import { Section } from '@/components/ui/display/section'
 import {
   Card,
   CardContent,
@@ -6,8 +5,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../ui/display/card'
-import { ListItem } from '../ui/display/list-item'
+} from '@/components/ui/display/card'
+import { InlineCode } from '@/components/ui/display/inline-code'
+import { ListItem } from '@/components/ui/display/list-item'
+import { Section } from '@/components/ui/display/section'
 
 export function ListGuide() {
   return (
@@ -25,8 +26,8 @@ export function ListGuide() {
       </CardContent>
       <CardFooter className="flex flex-row items-center justify-start">
         <p className="text-[11px] text-muted-foreground leading-relaxed">
-          <strong>Feedback:</strong> Nutzt den <code>accent</code>-State für
-          Hover und Focus, um die Klickbarkeit visuell zu bestätigen.
+          <b>Feedback:</b> Nutzt den <InlineCode>accent</InlineCode>
+          -State für Hover und Focus, um die Klickbarkeit visuell zu bestätigen.
         </p>
       </CardFooter>
     </Card>

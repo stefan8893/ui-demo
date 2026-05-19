@@ -1,6 +1,4 @@
-import { InlineCode } from '@/components/ui/display/inline-code'
-import { Section } from '@/components/ui/display/section'
-import { Button } from '../ui/buttons/button'
+import { Button } from '@/components/ui/buttons/button'
 import {
   Card,
   CardContent,
@@ -8,7 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../ui/display/card'
+} from '@/components/ui/display/card'
+import { InlineCode } from '@/components/ui/display/inline-code'
+import { Section } from '@/components/ui/display/section'
 
 export function DefaultCardGuide() {
   return (
@@ -23,10 +23,9 @@ export function DefaultCardGuide() {
         <Section>
           <p>
             Die <InlineCode>Card</InlineCode> ist das wichtigste Werkzeug, um
-            Inhalte zu gruppieren, die eine <strong>Handlung</strong> erfordern
-            oder eine
-            <strong> hohe Priorität</strong> besitzen. Sie hebt sich physisch
-            von der Oberfläche ab und signalisiert dem Nutzer:{' '}
+            Inhalte zu gruppieren, die eine <b>Handlung</b> erfordern oder eine
+            <b> hohe Priorität</b> besitzen. Sie hebt sich physisch von der
+            Oberfläche ab und signalisiert dem Nutzer:{' '}
             <em>"Hier passiert etwas Wichtiges."</em>
           </p>
           <p>
