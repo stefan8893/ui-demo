@@ -4,7 +4,7 @@ import {
   SheetDescription,
   SheetTitle,
 } from '@/components/ui/overlays/sheet'
-import { SidebarContent } from './sidebar-content'
+import { SidebarContent } from '@/layout/sidebar-content'
 
 type MobileSidebarProps = {
   isOpen: boolean

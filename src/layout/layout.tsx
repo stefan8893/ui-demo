@@ -66,7 +66,7 @@ export function Layout() {
       </aside>
 
       <div className={cn('relative flex flex-1 flex-col flex-nowrap')}>
-        {/* Keep h-18 in sync with HEADER_HEIGTH  */}
+        {/* Keep h-18 in sync with HEADER_HEIGHT  */}
         <header
           style={getHeaderStyle(position, scrollY)}
           className={cn(
